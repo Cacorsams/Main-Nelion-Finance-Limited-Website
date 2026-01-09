@@ -4,12 +4,12 @@ import Link from "next/link";
 import "../../../../style/index.css";
 import { FacilityData } from "@/app/types/property/propertyData";
 
-interface PropertyCardProps {
+interface FacilityCardProps {
   property: FacilityData;
   viewMode?: string;
 }
 
-const FacilityCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {
+const FacilityCard: React.FC<FacilityCardProps> = ({ property, viewMode }) => {
 
   return (
     <div
@@ -21,8 +21,8 @@ const FacilityCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {
         <div className={`relative ${viewMode == "list" && 'w-[30%]'}`}>
           <div className={`imageContainer h-[250px] w-full ${viewMode == "list" && 'h-full md:h-52'}`}>
             <Image
-              src={property?.property_img}
-              alt={`Image of ${property.property_title}`}
+              src={property?.image}
+              alt={`Image of ${property.title}`}
               width={400}
               height={250}
               className="w-full h-full object-cover group-hover:scale-125 duration-500"
@@ -38,13 +38,13 @@ const FacilityCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {
 
             <div>
               <p className="text-base text-gray font-medium uppercase tracking-wider">
-                {property.property_title}
+                {property.title}
               </p>
             </div>
 
             <div className="flex justify-between items-center pb-4">
               <div className="font-bold text-2xl group-hover:text-primary text-midnight_text dark:text-white">
-                {property.property_price}
+                {property.amount}
               </div>
               <div className="text-xs bg-[#DAE7FF] dark:bg-white text-midnight_text dark:text-primary py-1 px-2 rounded-lg font-bold uppercase tracking-widest">
                 {property.location}
@@ -62,7 +62,7 @@ const FacilityCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {
                   width={18}
                   style={{ width: "auto", height: "auto" }}
                 />
-                {property.beds} {property.category === 'micro' ? 'Days' : 'Months'}
+                {property.tenure} {property.category === 'micro' ? 'Days' : 'Months'}
               </p>
               <p className="text-xs uppercase font-bold text-gray tracking-widest">
                 Tenure
@@ -77,7 +77,7 @@ const FacilityCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {
                   width={18}
                   style={{ width: "auto", height: "auto" }}
                 />
-                {property.bathrooms}%
+                {property.interestRate}%
               </p>
               <p className="text-xs uppercase font-bold text-gray tracking-widest">
                 Interest
@@ -92,7 +92,7 @@ const FacilityCard: React.FC<PropertyCardProps> = ({ property, viewMode }) => {
                   width={18}
                   style={{ width: "auto", height: "auto" }}
                 />
-                {property.livingArea}
+                {property.approvalTime}
               </p>
               <p className="text-xs uppercase font-bold text-gray tracking-widest">
                 Approval

@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion';
 
 const AnimatedCounter = ({ value, suffix = '', duration = 4 }: { value: number; suffix?: string; duration?: number }) => {
     const ref = useRef<HTMLSpanElement>(null);
-    const isInView = useInView(ref, { once: true, threshold: 0.5 });
+    const isInView = useInView(ref, { once: true });
     const [count, setCount] = useState(0);
 
     useEffect(() => {
@@ -48,9 +48,9 @@ export default function CompanyInfo() {
                 <div className='bg-primary container lg:max-w-screen-xl md:max-w-screen-md mx-auto px-8 rounded-lg'>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
                         {stats.map((stat) => (
-                            <div 
-                                key={stat.id} 
-                                className='flex lg:flex-col flex-row justify-center items-center md:border-r border-border py-10 px-4 md:px-4 last:border-r-0' 
+                            <div
+                                key={stat.id}
+                                className='flex lg:flex-col flex-row justify-center items-center md:border-r border-border py-10 px-4 md:px-4 last:border-r-0'
                                 data-aos={stat.dataAos}
                             >
                                 <p className='text-[60px] leading-[1.2] mr-4 lg:mr-0 lg:mb-2 text-white font-bold'>

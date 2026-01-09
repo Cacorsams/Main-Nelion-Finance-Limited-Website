@@ -53,7 +53,7 @@ const searchOptions = {
         { value: 'agri', label: 'Agri-Business' },
         { value: 'youth', label: 'Youth Credit' },
     ],
-    beds: [
+    tenure: [
         { value: '', label: 'Tenure' },
         { value: '1', label: '1 Month' },
         { value: '3', label: '3 Months' },
@@ -61,7 +61,7 @@ const searchOptions = {
         { value: '12', label: '12 Months' },
         { value: '24', label: '24 Months' },
     ],
-    garages: [
+    requirements: [
         { value: '', label: 'Requirements' },
         { value: '0', label: 'Unsecured' },
         { value: '1', label: 'Guarantor' },

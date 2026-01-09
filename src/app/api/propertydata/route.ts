@@ -1,32 +1,52 @@
 export async function GET() {
   try {
-    // Sample property/loan data - replace with your actual data source
-    const properties = [
+    const facilities = [
       {
         id: 1,
-        property_title: "Micro-Lending",
-        property_price: "5,000 - 500,000",
-        description: "Perfect for small traders"
+        slug: "micro-lending",
+        title: "Micro-Lending",
+        amount: "5,000 - 500,000",
+        image: "/images/properties/property_1.jpg",
+        tag: "Micro",
+        location: "All Branches",
+        tenure: 30,
+        category: "micro",
+        interestRate: 3.5,
+        approvalTime: "24 Hours"
       },
       {
         id: 2,
-        property_title: "Asset Financing",
-        property_price: "100,000 - 5,000,000",
-        description: "Flexible vehicle financing"
+        slug: "asset-financing",
+        title: "Asset Financing",
+        amount: "100,000 - 5,000,000",
+        image: "/images/properties/property_2.jpg",
+        tag: "Leasing",
+        location: "Kariakoo",
+        tenure: 12,
+        category: "standard",
+        interestRate: 15,
+        approvalTime: "48 Hours"
       },
       {
         id: 3,
-        property_title: "SME Financing",
-        property_price: "500,000 - 50,000,000",
-        description: "Growth for your business"
+        slug: "sme-financing",
+        title: "SME Financing",
+        amount: "500,000 - 50,000,000",
+        image: "/images/properties/property_3.jpg",
+        tag: "Growth",
+        location: "Posta HQ",
+        tenure: 24,
+        category: "standard",
+        interestRate: 12,
+        approvalTime: "72 Hours"
       }
     ];
 
-    return Response.json(properties);
+    return Response.json(facilities);
   } catch (error) {
-    console.error('Error fetching properties:', error);
+    console.error('Error fetching facilities:', error);
     return Response.json(
-      { error: 'Failed to fetch properties' },
+      { error: 'Failed to fetch facilities' },
       { status: 500 }
     );
   }

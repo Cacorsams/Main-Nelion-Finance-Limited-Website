@@ -12,7 +12,7 @@ const BlogCard: FC<{ blog: Blog }> = ({ blog }) => {
             <div className="relative overflow-hidden rounded-2xl flex-shrink-0 w-full sm:w-52 h-52 sm:h-48 shadow-lg">
                 <Image
                     src={coverImage!}
-                    alt={title}
+                    alt={title || ""}
                     fill
                     className="transition duration-700 group-hover:scale-110 object-cover"
                 />

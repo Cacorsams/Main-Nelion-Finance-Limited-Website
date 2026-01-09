@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import FacilityCard from './property-card';
 
 const Listing = () => {
-  const [properties, setProperties] = useState<any[]>([])
+  const [facilities, setFacilities] = useState<any[]>([])
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -11,9 +11,9 @@ const Listing = () => {
         if (!res.ok) throw new Error('Failed to fetch')
 
         const data = await res.json()
-        setProperties(data || [])
+        setFacilities(data || [])
       } catch (error) {
-        console.error('Error fetching services:', error)
+        console.error('Error fetching facilities:', error)
       }
     }
 
@@ -25,9 +25,9 @@ const Listing = () => {
         <h1 className="text-4xl font-bold mb-4 text-midnight_text dark:text-white text-center" data-aos="fade-up">Strategic Lending Facilities</h1>
         <p className="text-gray text-center text-xl mb-12" data-aos="fade-up">Precision financial instruments tailored for your business trajectory</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {properties.slice(0, 6).map((property, index) => (
-            <div key={property.id} data-aos="fade-up" data-aos-delay={`${index * 100}`}>
-              <FacilityCard property={property} />
+          {facilities.slice(0, 6).map((facility, index) => (
+            <div key={facility.id} data-aos="fade-up" data-aos-delay={`${index * 100}`}>
+              <FacilityCard property={facility} />
             </div>
           ))}
         </div>

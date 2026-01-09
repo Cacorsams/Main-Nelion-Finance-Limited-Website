@@ -6,8 +6,8 @@ export default function Features() {
     const [propertiesData, setPropertiesData] = useState<any[]>([
         {
             id: 1,
-            property_title: "Micro-Lending",
-            property_price: "5,000 - 500,000",
+            title: "Micro-Lending",
+            amount: "5,000 - 500,000",
             description: "Perfect for small traders"
         }
     ]);
@@ -20,12 +20,12 @@ export default function Features() {
                     console.error(`API returned status: ${res.status}`);
                     return;
                 }
-                const properties = await res.json();
-                if (properties && Array.isArray(properties)) {
-                    setPropertiesData(properties);
+                const facilities = await res.json();
+                if (facilities && Array.isArray(facilities)) {
+                    setPropertiesData(facilities);
                 }
             } catch (error) {
-                console.error('Error fetching properties:', error);
+                console.error('Error fetching facilities:', error);
                 // Keep fallback data on error
             }
         };
@@ -76,12 +76,12 @@ export default function Features() {
                                         <div className="bg-primary/10 p-2 rounded-lg text-primary font-bold text-xs uppercase tracking-widest">
                                             Spotlight
                                         </div>
-                                        <h4 className="font-bold text-midnight_text dark:text-white uppercase text-sm tracking-tight">{featuredLoan.property_title}</h4>
+                                        <h4 className="font-bold text-midnight_text dark:text-white uppercase text-sm tracking-tight">{featuredLoan.title}</h4>
                                     </div>
                                     <div className="flex justify-between items-end border-t border-border dark:border-dark_border pt-3">
                                         <div>
                                             <p className="text-[10px] text-gray uppercase font-bold mb-1">Max Limit</p>
-                                            <p className="text-xl font-bold text-primary">{featuredLoan.property_price.split('-')[1] || featuredLoan.property_price}</p>
+                                            <p className="text-xl font-bold text-primary">{featuredLoan.amount?.split('-')[1] || featuredLoan.amount}</p>
                                         </div>
                                         <div className="bg-primary text-white text-[10px] font-bold py-1 px-3 rounded-full uppercase">
                                             Apply Now
