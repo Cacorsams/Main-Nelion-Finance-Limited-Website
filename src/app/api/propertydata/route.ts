@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export const loanData = [
   {
     id: '1',
-    property_img: "/images/properties/prop-1.jpg",
+    property_img: "https://placehold.co/600x400?text=Nelion+Finance",
     property_title: "Endeleza Growth Fund",
     property_price: "Tsh 100,000 - 5,000,000",
     category: "micro",
@@ -24,7 +24,7 @@ export const loanData = [
   },
   {
     id: '2',
-    property_img: "/images/properties/prop-4.jpg",
+    property_img: "https://placehold.co/600x400?text=Nelion+Finance",
     property_title: "Asset Drive",
     property_price: "Tsh 2,000,000+",
     category: "asset",
@@ -45,7 +45,7 @@ export const loanData = [
   },
   {
     id: '3',
-    property_img: "/images/properties/prop-7.jpg",
+    property_img: "https://placehold.co/600x400?text=Nelion+Finance",
     property_title: "Enterprise Shield",
     property_price: "Tsh 10,000,000+",
     category: "sme",
@@ -66,7 +66,7 @@ export const loanData = [
   },
   {
     id: '4',
-    property_img: "/images/properties/prop-10.jpg",
+    property_img: "https://placehold.co/600x400?text=Nelion+Finance",
     property_title: "Vendor Choice",
     property_price: "Tsh 50,000 - 500,000",
     category: "micro",
@@ -87,7 +87,7 @@ export const loanData = [
   },
   {
     id: '5',
-    property_img: "/images/properties/prop-13.jpg",
+    property_img: "https://placehold.co/600x400?text=Nelion+Finance",
     property_title: "Agri-Boost seasonal",
     property_price: "Tsh 500,000 - 10M",
     category: "agri",

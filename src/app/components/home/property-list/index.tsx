@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from 'react';
-import PropertyCard from './property-card';
+import FacilityCard from './property-card';
 
 const Listing = () => {
   const [properties, setProperties] = useState<any[]>([])
@@ -22,12 +22,12 @@ const Listing = () => {
   return (
     <section className="bg-light dark:bg-semidark flex justify-center items-center py-20">
       <div className="lg:max-w-screen-xl md:max-w-screen-md mx-auto container px-4">
-        <h1 className="text-4xl font-bold mb-4 text-midnight_text dark:text-white text-center" data-aos="fade-up">Strategic Loan Products</h1>
-        <p className="text-gray text-center text-xl mb-12" data-aos="fade-up">Tailored financial instruments designed to fuel your business growth</p>
+        <h1 className="text-4xl font-bold mb-4 text-midnight_text dark:text-white text-center" data-aos="fade-up">Strategic Lending Facilities</h1>
+        <p className="text-gray text-center text-xl mb-12" data-aos="fade-up">Precision financial instruments tailored for your business trajectory</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {properties.slice(0, 6).map((property, index) => (
             <div key={property.id} data-aos="fade-up" data-aos-delay={`${index * 100}`}>
-              <PropertyCard property={property} />
+              <FacilityCard property={property} />
             </div>
           ))}
         </div>

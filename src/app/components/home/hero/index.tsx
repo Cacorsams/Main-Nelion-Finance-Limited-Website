@@ -17,7 +17,7 @@ const Hero = () => {
           >
             <div className="mb-8 pl-4">
               <h1 className="md:text-[50px] leading-[1.2] text-4xl text-midnight_text dark:text-white font-bold uppercase tracking-tight">
-                Simplified<br />Financial Solutions
+                Building Strong Futures Through<br />Financial Solutions
               </h1>
               <p className="text-xl md:text-2xl mt-4 text-gray-600 dark:text-gray-300 italic opacity-80">
                 "Small choices often yield the most significant results"

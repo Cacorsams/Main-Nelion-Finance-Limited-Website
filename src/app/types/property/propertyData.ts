@@ -1,4 +1,4 @@
-export type propertyData = {
+export type FacilityData = {
     id: string,
     property_img: string,
     property_title: string,

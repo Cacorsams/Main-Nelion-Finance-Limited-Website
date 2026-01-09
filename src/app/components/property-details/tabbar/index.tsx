@@ -24,25 +24,25 @@ const content: Record<TabLabel, TabContent> = {
             'SME Mentorship',
             'Vendor Network'
         ],
-        image: '/images/tabbar/tab-1.jpg'
+        image: 'https://placehold.co/600x400?text=Micro-Lending+Solutions'
     },
     'Asset Financing': {
         title: 'Strategic Vehicle Procurement for Enterprises',
         description: 'Acquire high-quality motor vehicles through our specialized logbook and asset-backed credit structures.',
         features: ['Up to 80% Finance', 'Flexible 24m Tenure', 'Dealer Partner Perks'],
-        image: '/images/tabbar/tab-2.jpg'
+        image: 'https://placehold.co/600x400?text=Asset+Financing+Plans'
     },
     'SME Credit': {
         title: 'Scaling Established Regional Enterprises',
         description: 'Customized credit lines for businesses looking to expand operations, open new branches, or diversify product lines.',
         features: ['Priority Hub Access', 'Higher Credit Limits'],
-        image: '/images/tabbar/tab-3.jpg'
+        image: 'https://placehold.co/600x400?text=SME+Credit+Lines'
     },
     'Agri-Business': {
         title: 'Seasonal Growth Funds for Rural Markets',
         description: 'Specialized lending for agricultural value chains, accommodating harvest-based cash flow patterns.',
         features: ['Grace Periods', 'Input Financing', 'Market Linkage Support'],
-        image: '/images/tabbar/tab-4.jpg'
+        image: 'https://placehold.co/600x400?text=Agri-Business+Loans'
     }
 };
 

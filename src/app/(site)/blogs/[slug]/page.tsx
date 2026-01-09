@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import { Icon } from "@iconify/react";
 
 type Props = {
     params: { slug: string };
@@ -74,154 +75,110 @@ export default async function Post({ params }: any) {
     ]);
 
     return (
-        <>
-            <section className=" relative pt-44 bg-gradient-to-b from-white from-10% dark:from-darkmode to-herobg to-90% dark:to-darklight">
+        <div className="bg-white dark:bg-darkmode min-h-screen">
+            <section className="relative pt-44 pb-20 overflow-hidden">
+                {/* DECORATIVE GLASS BLURS */}
+                <div className="absolute top-0 right-0 size-[600px] bg-primary/10 blur-[150px] rounded-full -z-10 translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute bottom-0 left-0 size-[400px] bg-indigo-500/10 blur-[120px] rounded-full -z-10 -translate-x-1/2 translate-y-1/2" />
+
                 <div className="container lg:max-w-screen-xl md:max-w-screen-md mx-auto px-4">
-                    <div className="grid md:grid-cols-12 grid-cols-1 items-center">
-                        <div className="col-span-8">
-                            <div className="flex flex-col sm:flex-row">
-                                <span className="text-base text-midnight_text font-medium dark:text-white pr-7 border-r border-solid border-gray dark:border-white w-fit">
+                    <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-12">
+                        <div className="col-span-8" data-aos="fade-right">
+                            <div className="flex items-center gap-6 mb-8">
+                                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-bold uppercase tracking-widest">
                                     {format(new Date(post.date), "dd MMM yyyy")}
                                 </span>
-                                <span className="text-base text-midnight_text font-medium dark:text-white sm:pl-7 pl-0 w-fit">13 Comments</span>
+                                <div className="size-2 bg-gray/30 rounded-full" />
+                                <span className="text-gray dark:text-gray-400 font-medium">Insights</span>
                             </div>
-                            <h2 className="text-midnight_text dark:text-white pt-7">
+                            <h1 className="text-5xl md:text-7xl font-black text-midnight_text dark:text-white uppercase tracking-tighter leading-none italic mb-8">
                                 {post.title}
-                            </h2>
+                            </h1>
                         </div>
-                        <div className="flex items-center md:justify-center justify-start gap-6 col-span-4 pt-4 md:pt-0">
-                            <Image
-                                src={post.authorImage}
-                                alt="image"
-                                className="bg-no-repeat bg-contain inline-block rounded-full !w-20 !h-20"
-                                width={40}
-                                height={40}
-                                layout="responsive"
-                                quality={100}
-                            />
-                            <div className="">
-                                <span className="text-[22px] leading-[1.2] font-bold text-midnight_text dark:text-white">Silicaman</span>
-                                <p className="text-xl text-gray dark:text-white">Author</p>
+                        <div className="col-span-4" data-aos="fade-left">
+                            <div className="p-8 bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-[2.5rem] shadow-2xl flex items-center gap-6">
+                                <div className="size-20 relative rounded-full overflow-hidden border-2 border-primary/20">
+                                    <Image
+                                        src={post.authorImage}
+                                        alt={post.author}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <div>
+                                    <p className="text-xl font-bold text-midnight_text dark:text-white leading-tight uppercase tracking-tight">{post.author || "Nelion Admin"}</p>
+                                    <p className="text-primary font-black uppercase text-xs tracking-widest mt-1">Founding Team</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section className="pb-10 pt-20 dark:bg-darkmode lg:pb-20 lg:pt-32">
+
+            <section className="pb-32 px-4">
                 <div className="container lg:max-w-screen-xl md:max-w-screen-md mx-auto">
-                    <div className=" flex flex-wrap justify-center">
-                        <div className="w-full px-4">
-                            <div
-                                className="z-20 mb-16 h-80 overflow-hidden rounded md:h-25 lg:h-31.25">
-                                <Image
-                                    src={post.coverImage}
-                                    alt="image"
-                                    width={1170}
-                                    height={766}
-                                    quality={100}
-                                    className="h-full w-full object-cover object-center rounded-3xl"
-                                />
-                            </div>
-                            <div className="-mx-4 flex flex-wrap">
-                                <div className="w-full px-4 lg:w-8/12">
-                                    <div className="blog-details xl:pr-10">
-                                        <Markdown>{post.content}</Markdown>
+                    <div className="relative group mb-24" data-aos="zoom-in">
+                        <div className="absolute -inset-4 bg-primary/5 blur-2xl rounded-[4rem] group-hover:bg-primary/10 transition-colors" />
+                        <div className="relative h-[400px] md:h-[650px] overflow-hidden rounded-[3rem] shadow-2xl border border-white/20">
+                            <Image
+                                src={post.coverImage}
+                                alt={post.title}
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                priority
+                            />
+                        </div>
+                    </div>
+
+                    <div className="grid lg:grid-cols-12 gap-16">
+                        <div className="lg:col-span-8">
+                            <article className="prose prose-xl dark:prose-invert max-w-none 
+                                prose-headings:uppercase prose-headings:font-black prose-headings:tracking-tighter prose-headings:italic
+                                prose-p:text-gray-600 dark:prose-p:text-gray-300 prose-p:leading-relaxed
+                                prose-img:rounded-[2.5rem] prose-img:shadow-2xl
+                                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                                border-t border-border dark:border-dark_border pt-16">
+                                <Markdown>{post.content}</Markdown>
+                            </article>
+                        </div>
+
+                        <div className="lg:col-span-4 space-y-12">
+                            <div className="sticky top-32 space-y-8">
+                                {/* SHARE BOX */}
+                                <div className="p-10 bg-midnight_text dark:bg-black rounded-[3rem] shadow-2xl relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 size-32 bg-primary/20 blur-3xl -translate-y-1/2 translate-x-1/2" />
+                                    <h3 className="text-2xl font-black text-white uppercase tracking-tighter italic mb-8">Spread the Word</h3>
+                                    <div className="flex flex-col gap-4">
+                                        {[
+                                            { name: 'Facebook', icon: 'mdi:facebook', color: 'hover:bg-blue-600' },
+                                            { name: 'X / Twitter', icon: 'mdi:twitter', color: 'hover:bg-sky-500' },
+                                            { name: 'LinkedIn', icon: 'mdi:linkedin', color: 'hover:bg-blue-700' }
+                                        ].map((social) => (
+                                            <Link
+                                                key={social.name}
+                                                href="#"
+                                                className={`flex items-center gap-4 p-5 rounded-2xl bg-white/10 text-white font-bold uppercase tracking-widest text-sm border border-white/10 ${social.color} transition-all group`}
+                                            >
+                                                <Icon icon={social.icon} className="text-xl group-hover:scale-125 transition-transform" />
+                                                {social.name}
+                                            </Link>
+                                        ))}
                                     </div>
                                 </div>
-                                <div className="w-full px-4 lg:w-4/12">
-                                    <div>
-                                        <div className=" mb-8 flex flex-col">
 
-                                            <div className="w-full py-12 px-11 bg-white dark:bg-semidark shadow-lg border-b-2 border-border dark:border-dark_border ">
-
-                                                <h2
-                                                    className="wow fadeInUp relative mb-5 dark:text-white text-midnight_text font-medium text-2xl leading-[1.2]"
-                                                    data-wow-delay=".1s"
-                                                >
-                                                    Share
-                                                </h2>
-                                                <div className="flex gap-4 flex-col">
-                                                    <div className="bg-[#526fa3] py-4 px-6 text-xl rounded-lg text-white">
-                                                        <Link href="#" className="flex items-center ">
-                                                            <svg
-                                                                className="svg-inline--fa fa-facebook-f me-3"
-                                                                aria-hidden="true"
-                                                                focusable="false"
-                                                                data-prefix="fab"
-                                                                data-icon="facebook-f"
-                                                                role="img"
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                viewBox="0 0 320 512"
-                                                                width="12.5px"
-                                                                height="20px"
-                                                            >
-                                                                <path
-                                                                    fill="white"
-                                                                    d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5 16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0 129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
-                                                                />
-                                                            </svg>
-                                                            Facebook
-                                                        </Link>
-                                                    </div>
-                                                    <div className="bg-[#46C4FF] py-4 px-6 text-xl rounded-lg text-white">
-                                                        <Link href="#" className="flex items-center ">
-                                                            <svg
-                                                                className="svg-inline--fa fa-twitter me-3"
-                                                                aria-hidden="true"
-                                                                focusable="false"
-                                                                data-prefix="fab"
-                                                                data-icon="twitter"
-                                                                role="img"
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                viewBox="0 0 512 512"
-                                                                height="21.5px"
-                                                                width="25px"
-                                                            >
-                                                                <path
-                                                                    fill="currentColor"
-                                                                    d="M459.4 151.7c.325 4.548.325 9.097.325 13.745 0 140.966-107.416 303.213-303.213 303.213-60.452 0-116.426-17.781-163.725-48.265 8.447.974 16.568 1.299 25.34 1.299 50.236 0 96.56-17.206 133.26-46.258-46.832-.975-86.185-31.188-99.675-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.828-9.797-85.417-52.628-85.417-103.766v-1.299c14.33 7.92 30.748 12.67 48.364 13.32-28.264-18.843-46.832-51.014-46.832-87.391 0-19.492 5.197-37.36 14.33-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.794-2.599-15.91-2.599-24.029 0-57.502 46.833-104.335 104.334-104.335 30.137 0 57.502 12.67 76.67 33.137 23.715-4.548 46.182-13.32 66.599-25.34-7.793 24.366-24.366 44.833-46.182 57.502 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
-                                                                />
-                                                            </svg>
-                                                            twitter
-                                                        </Link>
-                                                    </div>
-                                                    <div className="bg-[#3C86AD] py-4 px-6 text-xl rounded-lg text-white">
-                                                        <Link href="#" className="flex items-center ">
-                                                            <svg
-                                                                className="svg-inline--fa fa-linkedin-in me-3"
-                                                                aria-hidden="true"
-                                                                focusable="false"
-                                                                data-prefix="fab"
-                                                                data-icon="linkedin-in"
-                                                                role="img"
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                viewBox="0 0 448 512"
-                                                                width="21.5px"
-                                                                height="25px"
-                                                            >
-                                                                <path
-                                                                    fill="currentColor"
-                                                                    d="M100.28 448H7.4V148.9h92.78zM53.79 108.1C24.09 108.1 0 83.79 0 54.14 0 24.37 24.09 0 53.79 0 83.3 0 107.6 24.37 107.6 54.14c.1 29.64-24.2 53.96-53.81 53.96zM447.4 448h-92.68V302.4c0-34.7-.7-79.29-48.32-79.29-48.32 0-55.7 37.72-55.7 76.79V448H157.3V148.9h88.94v40.8h1.28c12.4-23.41 42.62-48.32 87.76-48.32 93.9 0 111.18 61.81 111.18 142.3V448z"
-                                                                />
-                                                            </svg>
-                                                            linkedin
-                                                        </Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="w-full py-12 px-11 bg-white dark:bg-semidark shadow-lg font-medium">
-                                                <p className="text-midnight_text text-2xl font-medium mb-4">
-                                                    Join our Newsletter
-                                                </p>
-                                                <input
-                                                    placeholder="Email address "
-                                                    className="p-3 dark:bg-semidark border border-border dark:border-dark_border rounded-lg mb-2 w-full focus:outline-0 focus:border-primary dark:focus:border-primary"
-                                                />
-                                                <button className="w-full py-4 px-9 text-lg font-medium bg-primary hover:bg-blue-700 rounded-lg text-white">
-                                                    Subscribe
-                                                </button>
-                                            </div>
-                                        </div>
+                                {/* NEWSLETTER BOX */}
+                                <div className="p-10 bg-white/5 backdrop-blur-xl border border-border dark:border-dark_border rounded-[3rem] shadow-xl">
+                                    <h3 className="text-2xl font-black text-midnight_text dark:text-white uppercase tracking-tighter italic mb-6">Stay Informed</h3>
+                                    <p className="text-gray-500 dark:text-gray-400 mb-8 leading-relaxed">Join our inner circle for strategic updates and market wisdom.</p>
+                                    <div className="space-y-4">
+                                        <input
+                                            type="email"
+                                            placeholder="your@email.com"
+                                            className="w-full p-5 bg-white dark:bg-semidark border border-border dark:border-dark_border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
+                                        />
+                                        <button className="w-full py-5 bg-primary text-white font-black uppercase tracking-widest rounded-2xl shadow-xl shadow-primary/30 hover:bg-blue-700 transition-all">
+                                            Join Now
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -229,9 +186,6 @@ export default async function Post({ params }: any) {
                     </div>
                 </div>
             </section>
-            <div className="bg-SnowySky dark:bg-darklight">
-                {/* <BlogSmall /> */}
-            </div>
-        </>
+        </div>
     );
 }

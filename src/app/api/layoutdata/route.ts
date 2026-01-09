@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 const headerData = [
   { label: "Home", href: "/" },
   {
-    label: "Our Products",
+    label: "Business",
     href: "#",
     submenu: [
       { label: "Micro-Lending", href: "/#micro-lending" },
