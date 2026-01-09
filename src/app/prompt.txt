@@ -1,0 +1,633 @@
+
+
+
+
+
+
+
+i want you to take this template.
+Redo everything into Nelion Finance Limited (a platform Company Website that vendors Loan products 
+keep the same ux,brand identity,style,colors.Redo everything into a Company Website that vendors Loan products  website UI. using the following mock data from another company
+make sure you complete all pages and everything
+
+
+ 
+
+
+
+
+
+
+
+
+Editing all PAGES IN THIS ENTIRE project
+
+Rephrase english all words used in this page except unique words like name of places
+
+constants
+The Name of the Company is called Nelion Finance Limited
+Currency is Tanzanian Shilling (Tsh) 
+Location is Tegeta Branch---Main Office in Tanzania
+CONST MAIN TELEPHONE NUMBER IS "TZ +255 694 595 956"
+const email admin@nelion.co.tz
+
+Instaed of Simple Pay Foundation use Nelion Finance Limited
+
+Respect the frontend ui used keeping it the same jus replace the wordings
+
+under home page/landing page
+
+
+use this sample data of 4G CAPITAL NOT MY  COMPANY IT IS ANOTHER COMPANY derived from a known website 
+do not copy word for word so we do that to avoid copyright issues
+
+here it is the sample data for a different website but in the context of 
+a micro lending firm limited
+
+
+
+
+
+
+
+
+
+
+
+
+"Financing Made
+Simple
+“It’s always the little decisions that have the biggest impact”
+93%
+93% of our customers take repeat business month on month
+80%
+80% of women are in businesses who are in rural/urban slum setting
+75%
+75% more children from families financed by us receive an education
+Products
+
+Micro - Lending
+Empowering Small Businesses, Driving Economic Growth Our expanding microfinance division is dedicated to empowering the trader market, which consists of small businesses with immense potential, talent, and promising profit margins. Despite their potential, these businesses often face a critical barrier: the lack of capital needed to purchase inventory and scale their operations.
+
+Micro - Lending
+
+Asset Financing
+At SimplePay Capital Limited, we specialize in offering flexible and accessible financial solutions to help individuals and businesses acquire motor vehicles. Our core products—Logbook Loans and Asset Finance—are designed to cater to a wide range of needs, whether you are a young professional, an entrepreneur, or a business looking to expand your fleet.
+
+Asset Finance
+
+SME
+We provide collateral-backed loans specifically designed for small and medium enterprises (SMEs). SMEs are the backbone of most economies, particularly in developing nations, where they account for the majority of businesses and significantly contribute to job creation and economic growth.
+
+SME
+Why Choose US?
+Tailored Financial Solutions:      We understand that each client’s financial situation is unique. That’s why we take the time to review your financial statements,                                                                         assess obligations, and develop strategies to ensure you secure the appropriate assets.
+Collaborative Approach:              Our team collaborates closely with dealers and car yards to find the best vehicles at the most competitive rates.
+Commitment to Your Success:  We are dedicated to helping the upcoming youth, entrepreneurs, and businesses in Kenya achieve their dreams of vehicle                                                                                   ownership. With SimplePay Capital, you’re not just getting a loan—you’re gaining a partner in your financial success. 
+Impact
+
+Education
+
+Women Empowerment
+
+SME Growth
+
+Agricultural Development
+Vantagem de apostas da Galera Bet – Supere as probabilidades hoje!Na Bet Galera https://galerabet.flazio.site/ percebi que a vantagem está em suas odds aprimoradas e promoções frequentes. Ao analisar cuidadosamente as probabilidades e aproveitar as ofertas especiais, consegui superar as expectativas e aumentar meus ganhos.
+Jogos de apostas picantes que manterão você no limite!A Spicy Bet https://pbase.com/spicybet/spicy_bet__diverso_bnus_incrveis_e_saque_rpido_via_pix realmente faz jus ao nome, oferecendo jogos de apostas emocionantes que mantêm qualquer um no limite.
+Guia de login da PlayPix – Entre no mundo das Apostas agora!O processo de login na PlayPix Apostas https://emaze.me/playpix é direto e seguro. Após criar minha conta, utilizei a autenticação de dois fatores para aumentar a segurança.
+Estratégias de bônus da B1Bet que você não pode perder!
+As estratégias de bônus da B1 Bet site https://www.signupforms.com/registrations/39479 são imperdíveis. Ao me cadastrar, aproveitei o bônus de boas-vindas que dobrou meu depósito inicial.
+
+Mitos do suporte da PagBet desmascarados – Obtenha soluções reais!
+Inicialmente, acreditei em alguns mitos sobre o suporte da PagBet Brasil https://www.eventcreate.com/e/pag-bet mas minha experiência desmascarou essas percepções. Sempre que precisei de assistência, fui atendido prontamente por uma equipe profissional e eficiente.
+
+The SimplePay Foundation
+SimplePay foundation was established to direct our resources and social work to causes we truly believe in;
+
+Womens Empowerment – We seek out opportunities to enhance Women’s abilities, opportunities, and capacities to control their own lives and contributing to bettering those of their families. It involves providing women with the tools and resources necessary to make informed decisions, exercise their rights and participate actively in social and economic spheres. We have indulged in projects individually as well as collaborated with reputable professionals, schools, and charity organizations whose values align with ours. We have found that there is such an urgency to address some of the basic scarcities and human rights violations that some of these women are facing.
+
+Some of our projects involve:
+
+
+//use Framer motion value increase a period of 4 seconds
+Branches In Tanzania
+0--3
+Total Loans Disbursed
+0--1273
+Total Repeat Loans
+997
+New Client Loans
+209
+"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+Endeleza Loan Product |{use a logo to represent it}
+Instant Business Boost
+Apply Today
+Classic Button usage
+Endeleza Loan Product
+We know working capital to buy stock is vital for small enterprises. With UPIA, you’ll get a 30-day loan and training to help you grow your business better.
+We don’t ask for collateral before you get your loan. We don’t rely on your assets as security. You get what you need when you need it. 
+Unsecured
+We are your private relationship managers. This means we keep all client information confidential. 
+Private
+When your loan is approved you will receive it within 24 hours for the first loan, and request repeat loans in under a minute through a simple SMS short-code. 
+Instant
+Loans are affordable and accessible. Our rates are competitive with no hidden charges, fees or up-front payments. 
+Affordable
+Nelion Capital image place holder
+30-day working capital loan.
+From your local branch with in-person support and business training.
+Nelion Capital image place holder
+Loan ranges from KSH 7,500 -
+KSH 100,000
+With flexible repayments that work for you.
+Nelion Capital image place holder
+Loyalty Based Pricing
+Your good repayment history will be rewarded. 
+Nelion Capital image place holder
+Customer Protection
+We do our homework to keep you and your business safe.
+Apply for an UPIA loan today...
+First name
+e.g., Maruta
+Last name
+e.g., Mboso
+Email
+e.g., email@example.com
+Code
+
+TZ +255 694 595 956
+Phone
+e.g., 792 322 455
+Business
+Type of business e.g. mama mboga, grocery store, wines & spirits
+Location
+Where is your business located?
+Preferred product
+Endeleza Loan Product
+Questions/Concerns
+Please write them here or send an email to const email
+
+
+
+
+"
+impact page
+
+
+Using our business as a Force for Good...
+We are a proud B Corp - a new breed of business that is intentional about balancing purpose and profit. Among all B-Corp’s in Africa, 4G Capital is the highest scoring Fintech.
+Read our B Corp Report
+4G Button
+
+Read our Sustainability Report
+4G Button
+Some of the impact we’re tracking... 
+72%
+Female
+Traders
+81%
+Rural
+Markets
+94%
+Increased
+Business Skills
+51%
+Net Promoter Score
+1.3M
+Indirect Jobs Created
+Our progress on the United Nations SDG’s...
+We use the Sustainable Development Goals as a framework to ensure that our business is always performing at peak of best Environmental, Social and Governance practice. We can benchmark our results against all B Corps Globally.
+
+
+
+work with us page
+
+Join a Team 
+Driving Impact Across Africa
+National Council for Persons with Disabilities
+Kenya Business And Disability
+We’re looking for bold, mission-driven talent to power the next chapter of financial inclusion in Africa.
+View Open Roles
+4G Button
+Why Work With Us?
+At 4G Capital, we’re building futures - We blend smart technology with human insight to empower small businesses across Africa.
+
+Real
+Impact:
+Your work directly
+
+helps entrepreneurs 
+
+Grow and thrive
+
+Real Impact Icon
+Growth
+Opportunities:
+Access resources, training, and mentorship to accelerate your personal and professional journey.
+
+Growth Icon
+Collaborative
+Culture:
+Work alongside passionate, talented teammates across diverse markets and functions.
+
+Collaborative Icon
+Diverse and
+Inclusive:
+We value every voice. We thrive on our differences and champion a culture of belonging.
+
+Diverse & Inclusive Icon
+Great
+Benefits:
+Flexible work options,
+
+competitive salary, comprehensive health plans, and recognition & rewards for your contributions.
+
+Great Benefits Icon
+What We Stand For?
+At 4G Capital, our values shape how we lead, collaborate, and deliver results every day.
+
+4G Capital values Wheel
+4G Capital Values
+Hear From Our Team
+Mary Mwangi
+Speech quote
+From intern to Customer Care Manager - 4G Capital has supported my growth every step of the way.”
+
+Mary Mwangi
+Customer Care Manager
+Read Mary's Full Story Here
+
+
+
+blog page 
+
+
+Our News
+Search.
+4G Capital employs almost 1500 employees across Kenya and Uganda. Since its inception in 2013, the company has loaned over 5.3 million small working capital loans valued at over $660 million.
+
+ 
+
+The company has almost 617,000 clients, 72% female, and 65 % run micro and SME enterprises in rural areas. 4G Capital clients receive customized business training programs and credit guidance via mobile apps and in-person via a nationwide network of branches.
+
+ 
+
+4G Capital’s unique machine learning technology delivers high-fidelity insight into client risk and affordability. As a result, 4G Capital consistently achieves high collection rates (94%) without collateral or refinancing its clients, only lending to viable businesses on terms that are right for them.
+
+ 
+
+4G Capital has positively impacted over 4.1 million people. Having received multiple industry awards, 4G Capital is scaling and expanding its products and services in East Africa. As a B Corporation, 4G Capital champions the movement’s approach to creating shared value and was recently listed among the Top 10 B Corporation Financial Service providers worldwide. www.4g-capital.com
+
+All Posts
+PRESS RELEASE
+OUR STORIES
+OUR CUSTOMERS
+IN THE NEWS
+4G Capital Crowned 'Best Fintech' at Prestigious African Banker Awards 2025 ABIDJAN, CÔTE D'IVOIRE – June 4, 2025 
+4G Capital Crowned 'Best Fintech' at Prestigious African Banker Awards 2025 ABIDJAN, CÔTE D'IVOIRE – June 4, 2025
+IN THE NEWS
+Jun 7, 2025
+2 min read
+
+1 like. Post not marked as liked
+1
+A Ride to Freedom: Martin Njuguna's Journey from Boda Boda Rider to Business Owner
+A Ride to Freedom: Martin Njuguna's Journey from Boda Boda Rider to Business Owner
+OUR CUSTOMERS
+May 29, 2025
+3 min read
+
+Post not marked as liked
+Felicity Mwendwa: Building Community and Empowering Agriculture with the Jiinue Growth Program
+Felicity Mwendwa: Building Community and Empowering Agriculture with the Jiinue Growth Program
+OUR CUSTOMERS
+May 26, 2025
+3 min read
+
+Post not marked as liked
+Why Fair Tax Policy Matters: Julian Mitchell on Powering Kenya's Informal Sector
+Why Fair Tax Policy Matters: Julian Mitchell on Powering Kenya's Informal Sector
+IN THE NEWS
+May 19, 2025
+1 min read
+
+1 like. Post not marked as liked
+1
+ From Employee to Entrepreneur: Kyalo’s Tailoring Business Success with 4G Capital
+From Employee to Entrepreneur: Kyalo’s Tailoring Business Success with 4G Capital
+OUR CUSTOMERS
+Mar 10, 2025
+3 min read
+
+2 likes. Post not marked as liked
+2
+Innovative Financing for Inclusive Credit Fintechs in Africa
+Innovative Financing for Inclusive Credit Fintechs in Africa
+IN THE NEWS
+Jan 23, 2025
+1 min read
+
+1 like. Post not marked as liked
+1
+4G Capital / HerVenture Pilot Case Study - Bancy
+4G Capital / HerVenture Pilot Case Study - Bancy
+OUR STORIES
+Oct 23, 2024
+2 min read
+
+1 like. Post not marked as liked
+1
+4G Capital / HerVenture Pilot Case Study - Joan
+4G Capital / HerVenture Pilot Case Study - Joan
+Joan is a cheerful young woman who owns a mobile money agency plus services from 4 different banks in a peri-urban town just outside...
+OUR STORIES
+Oct 23, 2024
+2 min read
+
+2 likes. Post not marked as liked
+2
+September 16, 2024: "Julian Mitchell takes CEO role at 4G Capital, focusing on regional expansion" – FF News
+IN THE NEWS
+Sep 16, 2024
+1 min read
+
+1 like. Post not marked as liked
+1
+Julian Mitchell appointed CEO at 4G Capital 
+Julian Mitchell appointed CEO at 4G Capital
+16 September 2024: Nairobi, Kenya: 4G Capital, have appointed Julian Mitchell CEO, effective Monday 16 September 2024 . Julian will be...
+PRESS RELEASE
+Sep 16, 2024
+4 min read
+
+1 like. Post not marked as liked
+1
+Vision Beyond Limits: George Gaya's Journey to Success
+Vision Beyond Limits: George Gaya's Journey to Success
+OUR CUSTOMERS
+Aug 16, 2024
+3 min read
+
+1 like. Post not marked as liked
+1
+Mary Mwangi - Customer Care Manager
+Mary Mwangi - Customer Care Manager
+I began my career as a customer care agent at a digital provider store, where my role primarily involved supporting customers over the...
+OUR STORIES
+Jul 26, 2024
+2 min read
+
+5 likes. Post not marked as liked
+5
+Eric Munjiru-Level (3 ) Systems Support
+Eric Munjiru-Level (3 ) Systems Support
+My journey at 4G Capital has been nothing short of incredible. It all started in 2016 when I joined as an intern, eager to make a...
+OUR STORIES
+Jul 25, 2024
+2 min read
+
+3 likes. Post not marked as liked
+3
+Helping small businesses access finance.
+Helping small businesses access finance.
+African businesses need working capital to enable them scale across the world, but in the same vein of pursuing those opportunities and...
+IN THE NEWS
+Jun 24, 2024
+5 min read
+
+2 likes. Post not marked as liked
+2
+4G Capital Launches KSh 500Mn Corporate Debt Programme Through Dry Associates Investment Bank
+4G Capital Launches KSh 500Mn Corporate Debt Programme Through Dry Associates Investment Bank
+PRESS RELEASE
+Jun 11, 2024
+2 min read
+
+2 likes. Post not marked as liked
+2
+How Financial Institutions Can Help Mitigate Climate Risks
+How Financial Institutions Can Help Mitigate Climate Risks
+PRESS RELEASE
+Jun 3, 2024
+4 min read
+
+1 like. Post not marked as liked
+1
+Mark Wanyonyi: Tranforming Adversity into Opportunity
+Mark Wanyonyi: Tranforming Adversity into Opportunity
+OUR CUSTOMERS
+Apr 26, 2024
+2 min read
+
+Post not marked as liked
+Florida Murugi: From Small Beauty Shop to Thriving Entrepreneur
+Florida Murugi: From Small Beauty Shop to Thriving Entrepreneur
+OUR CUSTOMERS
+Apr 26, 2024
+2 min read
+
+Post not marked as liked
+Tracy Wambugu: A Tale of Resilience, Ambition, and Gratitude
+Tracy Wambugu: A Tale of Resilience, Ambition, and Gratitude
+OUR CUSTOMERS
+Feb 22, 2024
+2 min read
+
+1 like. Post not marked as liked
+1
+Empowering Dreams and Transforming Lives
+Empowering Dreams and Transforming Lives
+Meet Ibrahim Kuria Wahimu, a passionate entrepreneur with a vision for health and alternative medicine. Back in 2016, he dreamt of a...
+OUR CUSTOMERS
+Feb 22, 2024
+2 min read
+
+1 like. Post not marked as liked
+1
+Benson Mwangi: Growing through the seasons 
+Benson Mwangi: Growing through the seasons
+Benson Mwangi’s venture into the second-hand clothing business spans over 15 years, starting with a humble investment of 1500. His...
+OUR CUSTOMERS
+Jan 10, 2024
+2 min read
+
+1 like. Post not marked as liked
+1
+Breathe in… Breathe out
+Breathe in… Breathe out
+Is it just me or have days been flying by at supersonic speed? Life can get crazy, am I right? We're constantly hustling, bustling, and...
+OUR STORIES
+Dec 13, 2023
+3 min read
+
+Post not marked as liked
+Samuel Gikonyo: Rising from the ashes
+Samuel Gikonyo: Rising from the ashes
+It took one chat with Samuel Gikonyo to inspire a whole month. Samuel is a businessman based at the Main Stage of Nanyuki. He owns a...
+
+
+
+FAQ page
+
+
+4G Capital Logo
+Home
+Our Products
+
+Impact
+Careers
+Governance
+News
+FAQ
+Contact
+FAQ's photo.png
+4G Tree 
+FAQ's
+All the latest information and answers to your frequently asked questions.
+What is 4G Capital's most popular product?
+
+UPIA is our flagship 30-day product.
+
+Answer
+How do I request a loan from 4G Capital? 
+
+Dial *612# in Kenya or contact us on +256 707 424 213 in Uganda.
+
+Answer
+Who does 4G Capital target?
+
+4GC Capital is here for small businesses buying and selling stock within a short time cycle, and the distributors who supply them with goods to sell.
+
+Answer:
+As a business owner, what do I need to apply for a loan?
+
+Eligibility Criteria:
+1. Your business needs to have been in operation for 6 months and above;
+2. A valid ID;
+3. A permanent business;
+4. Proof of ownership of business;
+5. Operating in Kenya or Uganda; and
+6. A registered Safaricom or MTN line.
+
+Answer:
+Why 4G Capital?
+
+We consistently deliver the best customer growth and business wellbeing outcomes, with the most competitive products and the best service. We succeed when our customers succeed.
+
+Answer:
+What kind of financial literacy trainings are offered by 4G Capital
+
+We offer a progressive series of skills and knowledge training, tailored for your business needs.
+
+Answer:
+Where is 4G Capital located?
+
+With over 167 locations across Kenya and 22 in Uganda, and over 114 distribution partners, there will be a team nearby for you.
+
+Answer:
+What are the terms and conditions to getting an UPIA loan?
+
+T&Cs UPIA 30
+
+
+
+
+CONTACT US
+
+
+
+4G Capital is The Best African Fintech for financial growth.
+4G Capital is recognized among the Best African Fintechs, delivering smart business loans, training, and digital financial services that help enterprises grow.
+
+ 
+
+With fast mobile money disbursements and repayments, we make financing simple, secure, and stress-free.
+Every loan includes customised training through our 'touch-tech' approach, blending personal support with digital access. By providing inclusive MSME loans, 4G Capital empowers small businesses to unlock opportunities and achieve sustainable growth across Africa.
+
+Discover 4G Capital
+Icon
+12 years of operations 
+Enable unbeatable accuracy in our AI to right size loans and provide laser focussed support for small businesses
+Asset Icon
+6.2 Million loans delivered
+Securely and privately via Mobile Money with 87% customer repeat rate and consistently high promoter scores.
+Asset Icon
+Over 635,500 customers
+Have received support and training enabling up to 86% business growth in a year creating lasting trust and loyalty.
+Asset Icon
+780.1 million dollars disbursed
+In instant repeat loans delivered on request at any time day or night, leaving customers free to run their busy lives.
+Find your Nearest Team
+Kenya
+195 Branches
+
+FIND YOUR LOCAL 4G CAPITAL LOCATION
+Uganda
+ 
+26 Branches
+
+FIND YOUR LOCAL 4G CAPITAL LOCATION
+Jersey Headquarters
+ 
+
+
+Jersey Map
+Floridah.png
+Unrivalled Customer Impact 
+Quote
+“4G Capital is the best place for visionary business people to grow and thrive as unlike other lenders, they trust you first, then build the relationship later"
+Meet Floridah Murugi from vibrant Meru County, Kenya. She embarked on a life-changing journey to the town of Lodwar during her college years and, captivated by its promise, decided to make it her permanent home. Eleven years ago, with courage and vision, she opened a small beauty shop in the heart of town. The beginning was challenging, with daily earnings of around $20. However, Floridah was determined not to return to her village and recognized the incredible potential of this rapidly flourishing town, she was resolutely determined to succeed.
+
+ 
+
+Her vision has always been to create a one-stop shop where her customers can enjoy both quality and affordability. Then, in April 2022, a visit from the 4G Capital team brought a new dawn to her dreams.
+
+Read More
+4G Capital Tree
+Contact us today!
+First name
+e.g., John
+Last name
+e.g., Karanja
+Email
+e.g., email@example.com
+Code
+
+KE +254
+Phone
+e.g., 722 345 678
+Business
+Type of business e.g. mama mboga, grocery store, wines & spirits
+Location
+Where is your business located?
+Preferred product
+KUZA / UPIA / KAWI / NEXTGEN
+Questions/Concerns
+Please write them here or send an email to contact@4g-capital.com
+
+
+
+Submit
+
+
+
+
+
