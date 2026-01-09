@@ -37,6 +37,12 @@ function NewsletterSection() {
 }
 
 function DottedGlobe() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className="absolute right-0 top-0 bottom-0 w-full md:w-1/2 overflow-hidden pointer-events-none opacity-80">
       <svg viewBox="0 0 400 400" className="w-full h-full text-white/20">
@@ -80,7 +86,7 @@ function DottedGlobe() {
         />
 
         <g mask="url(#globe-mask)" fill="currentColor">
-          {Array.from({
+          {mounted && Array.from({
             length: 20,
           }).map((_, row) =>
             Array.from({
@@ -179,8 +185,8 @@ function PromoCard() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
               Empowering <br />
               <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 overflow-hidden">
-              Tanzanian Ambition
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 animate-shine" style={{animation: 'shine 3s ease-in-out'}}></span>
+                Tanzanian Ambition
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 animate-shine" style={{ animation: 'shine 3s ease-in-out' }}></span>
               </span>
             </h2>
             <p className="text-gray-300 text-lg mb-8">
