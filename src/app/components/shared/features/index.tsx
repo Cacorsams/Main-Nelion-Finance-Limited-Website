@@ -3,17 +3,30 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 export default function Features() {
-    const [propertiesData, setPropertiesData] = useState<any[]>([]);
+    const [propertiesData, setPropertiesData] = useState<any[]>([
+        {
+            id: 1,
+            property_title: "Micro-Lending",
+            property_price: "5,000 - 500,000",
+            description: "Perfect for small traders"
+        }
+    ]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch('/api/propertydata');
-                if (!res.ok) throw new Error('Failed to fetch properties');
+                const res = await fetch('/api/propertydata', { cache: 'no-store' });
+                if (!res.ok) {
+                    console.error(`API returned status: ${res.status}`);
+                    return;
+                }
                 const properties = await res.json();
-                setPropertiesData(properties || []);
+                if (properties && Array.isArray(properties)) {
+                    setPropertiesData(properties);
+                }
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching properties:', error);
+                // Keep fallback data on error
             }
         };
         fetchData();

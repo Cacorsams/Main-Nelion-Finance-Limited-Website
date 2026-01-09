@@ -59,7 +59,13 @@ export default function History() {
         >
           <div className="bg-white dark:bg-darklight dark:text-white p-8 border-4 border-primary rounded-3xl shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 p-4 opacity-10">
-              <svg width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="currentColor" /></svg>
+              <Image
+              src="/images/contact-page/Career.svg"
+              alt="Decorative SVG"
+              width={100}
+              height={100}
+              className="object-contain"
+              />
             </div>
             <p className="mb-12 text-2xl text-midnight_text dark:text-white font-black uppercase leading-tight italic">
               Premium Financial<br />Integrity
@@ -73,9 +79,13 @@ export default function History() {
                   12
                 </p>
               </div>
-              <div className="size-16 bg-primary rounded-2xl flex items-center justify-center text-white font-bold text-3xl">
-                N
-              </div>
+              <Image
+                src="/nel.png"
+                alt="Nelion Finance Logo"
+                width={64}
+                height={64}
+                className="object-contain"
+              />
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 const headerData = [
   { label: "Home", href: "/" },
+  { label: "Let's Grow", href: "/#lets-grow" },
   {
     label: "Business",
     href: "#",

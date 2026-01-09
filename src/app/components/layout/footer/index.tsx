@@ -1,13 +1,10 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from 'react';
-import { PropertyContext } from '@/context-api/PropertyContext';
 import { EMAIL, PHONE } from "@/constants";
 import { useTheme } from "next-themes";
 
 const Footer = () => {
-  const { updateFilter } = useContext(PropertyContext)!;
   const { theme, setTheme } = useTheme();
 
   return (

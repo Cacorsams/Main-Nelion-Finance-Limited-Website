@@ -7,7 +7,7 @@ import Features from './components/shared/features';
 import CompanyInfo from './components/home/info';
 import BlogSmall from './components/shared/blog';
 import DiscoverProperties from './components/home/property-option';
-import Listing from './components/home/property-list';
+import EndelezaFeature from './components/home/endeleza-feature';
 import Testimonials from './components/home/testimonial';
 import { COMPANY_NAME } from '@/constants';
 
@@ -20,8 +20,8 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <EndelezaFeature />
       <DiscoverProperties />
-      <Listing />
       <Calculator />
       <Features />
       <History />
