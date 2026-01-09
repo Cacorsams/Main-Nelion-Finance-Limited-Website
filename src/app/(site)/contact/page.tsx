@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { PHONE, EMAIL, LOCATION, COMPANY_NAME } from '@/constants';
 import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
+import { toast } from 'sonner';
 
 export default function ContactPage() {
   return (
@@ -86,33 +87,78 @@ export default function ContactPage() {
 
           {/* GLASS INQUIRY FORM */}
           <div className="lg:col-span-7" data-aos="fade-up" data-aos-delay="200">
-            <div className="h-full bg-midnight_text dark:bg-black p-10 md:p-16 rounded-[4rem] relative overflow-hidden shadow-2xl">
+            <div className="h-full bg-gray-100 dark:bg-gray-800 p-10 md:p-16 rounded-[4rem] relative overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-primary/5 blur-[100px] pointer-events-none" />
               <div className="relative z-10 w-full">
-                <h3 className="text-3xl font-black text-white uppercase tracking-tighter italic mb-10">Initiate Your Lending Journey</h3>
-                <form className="space-y-8">
+                <h3 className="text-3xl font-black text-midnight_text dark:text-white uppercase tracking-tighter italic mb-10">Initiate Your Lending Journey</h3>
+                <form
+                  className="space-y-8"
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    const formData = new FormData(e.currentTarget);
+                    const data = {
+                      name: formData.get('name'),
+                      email: formData.get('email'),
+                      contactSequence: formData.get('contactSequence'),
+                      strategicRequirement: formData.get('strategicRequirement'),
+                      message: formData.get('message'),
+                      type: 'contact'
+                    };
+
+                    const btn = e.currentTarget.querySelector('button');
+                    if (btn) btn.disabled = true;
+
+                    const toastId = toast.loading('Transmitting inquiry...');
+
+                    try {
+                      const res = await fetch('/api/resendapi', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                      });
+
+                      const result = await res.json();
+
+                      if (res.ok) {
+                        toast.success('Inquiry transmitted successfully. We will contact you soon.', { id: toastId });
+                        (e.target as HTMLFormElement).reset();
+                      } else {
+                        toast.error(result.error || 'Failed to transmit inquiry.', { id: toastId });
+                      }
+                    } catch (err) {
+                      toast.error('An error occurred. Please try again later.', { id: toastId });
+                    } finally {
+                      if (btn) btn.disabled = false;
+                    }
+                  }}
+                >
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="space-y-3">
-                      <label className="text-[10px] uppercase font-black text-white/50 tracking-[0.2em] ml-2">Your Full Identity</label>
-                      <input type="text" className="w-full bg-white/5 border border-white/10 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-white font-medium" placeholder="E.g. Juma Kapuya" />
+                      <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">Your Full Identity</label>
+                      <input name="name" type="text" required className="w-full bg-white border border-gray-200 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-black placeholder-gray-400 font-medium" placeholder="E.g. Juma Kapuya" />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[10px] uppercase font-black text-white/50 tracking-[0.2em] ml-2">Contact Sequence</label>
-                      <input type="tel" className="w-full bg-white/5 border border-white/10 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-white font-medium" placeholder="+255..." />
+                      <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">Email Address</label>
+                      <input name="email" type="email" required className="w-full bg-white border border-gray-200 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-black placeholder-gray-400 font-medium" placeholder="your@email.com" />
                     </div>
                   </div>
                   <div className="space-y-3">
-                    <label className="text-[10px] uppercase font-black text-white/50 tracking-[0.2em] ml-2">Strategic Requirement</label>
-                    <select className="w-full bg-white/5 border border-white/10 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-white font-medium appearance-none">
-                      <option className="bg-midnight_text">Endeleza Growth Fund</option>
-                     
+                    <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">Contact Sequence (Phone)</label>
+                    <input name="contactSequence" type="tel" className="w-full bg-white border border-gray-200 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-black placeholder-gray-400 font-medium" placeholder="+255..." />
+                  </div>
+                  <div className="space-y-3">
+                    <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">Strategic Requirement</label>
+                    <select name="strategicRequirement" className="w-full bg-white border border-gray-200 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-black font-medium appearance-none">
+                      <option>Endeleza Growth Fund</option>
+                      <option>Other</option>
+
                     </select>
                   </div>
                   <div className="space-y-3">
-                    <label className="text-[10px] uppercase font-black text-white/50 tracking-[0.2em] ml-2">Narrative of Inquiry</label>
-                    <textarea className="w-full bg-white/5 border border-white/10 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-white font-medium h-40 resize-none" placeholder="How can we empower your vision?"></textarea>
+                    <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">Narrative of Inquiry</label>
+                    <textarea name="message" required className="w-full bg-white border border-gray-200 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-black font-medium h-40 resize-none" placeholder="How can we empower your vision?"></textarea>
                   </div>
-                  <button className="w-full bg-primary text-white py-6 rounded-3xl font-black uppercase tracking-[0.2em] hover:bg-blue-700 hover:shadow-2xl hover:shadow-primary/40 transition-all shadow-xl shadow-primary/20 text-lg">
+                  <button type="submit" className="w-full bg-primary text-white py-6 rounded-3xl font-black uppercase tracking-[0.2em] hover:bg-blue-700 hover:shadow-2xl hover:shadow-primary/40 transition-all shadow-xl shadow-primary/20 text-lg disabled:opacity-50">
                     Transmit Inquiry
                   </button>
                 </form>

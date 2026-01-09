@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { Icon } from "@iconify/react";
+import BlogNewsletter from "@/app/components/blog/BlogNewsletter";
 
 type Props = {
     params: { slug: string };
@@ -167,20 +168,7 @@ export default async function Post({ params }: any) {
                                 </div>
 
                                 {/* NEWSLETTER BOX */}
-                                <div className="p-10 bg-white/5 backdrop-blur-xl border border-border dark:border-dark_border rounded-[3rem] shadow-xl">
-                                    <h3 className="text-2xl font-black text-midnight_text dark:text-white uppercase tracking-tighter italic mb-6">Stay Informed</h3>
-                                    <p className="text-gray-500 dark:text-gray-400 mb-8 leading-relaxed">Join our inner circle for strategic updates and market wisdom.</p>
-                                    <div className="space-y-4">
-                                        <input
-                                            type="email"
-                                            placeholder="your@email.com"
-                                            className="w-full p-5 bg-white dark:bg-semidark border border-border dark:border-dark_border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
-                                        />
-                                        <button className="w-full py-5 bg-primary text-white font-black uppercase tracking-widest rounded-2xl shadow-xl shadow-primary/30 hover:bg-blue-700 transition-all">
-                                            Join Now
-                                        </button>
-                                    </div>
-                                </div>
+                                <BlogNewsletter />
                             </div>
                         </div>
                     </div>

@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, Moon, Sun } from 'lucide-react';
 import { useTheme } from "next-themes";
-import { EMAIL, PHONE } from "@/constants";
+import { PHONE, EMAIL, LOCATION, COMPANY_NAME } from '@/constants';
+import { toast } from 'sonner';
 
 // --- Sub-components ---
 function NewsletterSection() {

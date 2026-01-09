@@ -7,6 +7,7 @@ import NextTopLoader from 'nextjs-toploader';
 import Footer from "./components/layout/footer";
 import ScrollToTop from "./components/scroll-to-top";
 import Header from "./components/layout/header";
+import { Toaster } from 'sonner';
 
 export default function RootLayout({
   children,
@@ -28,6 +29,7 @@ export default function RootLayout({
             <Footer />
           </Aoscompo>
           <ScrollToTop />
+          <Toaster position="top-center" richColors />
         </ThemeProvider>
       </body>
     </html>
