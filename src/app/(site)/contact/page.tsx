@@ -105,9 +105,7 @@ export default function ContactPage() {
                     <label className="text-[10px] uppercase font-black text-white/50 tracking-[0.2em] ml-2">Strategic Requirement</label>
                     <select className="w-full bg-white/5 border border-white/10 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-white font-medium appearance-none">
                       <option className="bg-midnight_text">Endeleza Growth Fund</option>
-                      <option className="bg-midnight_text">Asset Financing Solutions</option>
-                      <option className="bg-midnight_text">SME Capital Scaling</option>
-                      <option className="bg-midnight_text">Bespoke Financial Advisory</option>
+                     
                     </select>
                   </div>
                   <div className="space-y-3">

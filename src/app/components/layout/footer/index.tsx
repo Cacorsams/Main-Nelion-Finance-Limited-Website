@@ -1,187 +1,368 @@
 "use client";
+import React, { useEffect, useState } from 'react';
 import Image from "next/image";
 import Link from "next/link";
-import { EMAIL, PHONE } from "@/constants";
+import { Mail, Moon, Sun } from 'lucide-react';
 import { useTheme } from "next-themes";
+import { EMAIL, PHONE } from "@/constants";
 
-const Footer = () => {
-  const { theme, setTheme } = useTheme();
-
+// --- Sub-components ---
+function NewsletterSection() {
   return (
-    <div role="contentinfo" className="relative z-10 bg-midnight_text dark:bg-semidark">
-      <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md pt-10 pb-5 px-0 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-12 gap-4">
-          <div className="md:col-span-4 col-span-12 flex flex-col items-start px-4 sm:px-0">
-            <Link href="/" className="mb-6 inline-block max-w-40">
-              <Image
-                src="/images/logo/logo-white.svg"
-                alt="logo"
-                width={156}
-                height={38}
-              />
-            </Link>
+    <div className="w-full bg-white dark:bg-gray-900 py-20 px-4 flex flex-col items-center text-center transition-colors duration-300">
+      <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4 tracking-tight">
+        Subscribe
+      </h2>
+      <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-lg text-lg">
+        We respect your financial privacy
+      </p>
 
-            {/* Theme Toggle in Footer */}
-            <button
-              aria-label="Toggle theme"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="flex items-center gap-3 text-white/70 hover:text-white transition-colors py-2 px-3 border border-white/20 rounded-xl mb-6 bg-white/5"
-            >
-              {theme === "dark" ? (
-                <>
-                  <svg viewBox="0 0 16 16" className="h-4 w-4 fill-white">
-                    <path d="M4.50663 3.2267L3.30663 2.03337L2.36663 2.97337L3.55996 4.1667L4.50663 3.2267ZM2.66663 7.00003H0.666626V8.33337H2.66663V7.00003ZM8.66663 0.366699H7.33329V2.33337H8.66663V0.366699V0.366699ZM13.6333 2.97337L12.6933 2.03337L11.5 3.2267L12.44 4.1667L13.6333 2.97337ZM11.4933 12.1067L12.6866 13.3067L13.6266 12.3667L12.4266 11.1734L11.4933 12.1067ZM13.3333 7.00003V8.33337H15.3333V7.00003H13.3333ZM7.99996 3.6667C5.79329 3.6667 3.99996 5.46003 3.99996 7.6667C3.99996 9.87337 5.79329 11.6667 7.99996 11.6667C10.2066 11.6667 12 9.87337 12 7.6667C12 5.46003 10.2066 3.6667 7.99996 3.6667ZM7.33329 14.9667H8.66663V13H7.33329V14.9667ZM2.36663 12.36L3.30663 13.3L4.49996 12.1L3.55996 11.16L2.36663 12.36Z" />
-                  </svg>
-                  <span className="text-xs font-bold uppercase tracking-widest">Light Mode</span>
-                </>
-              ) : (
-                <>
-                  <svg viewBox="0 0 23 23" className="h-4 w-4 fill-white">
-                    <path d="M16.6111 15.855C17.591 15.1394 18.3151 14.1979 18.7723 13.1623C16.4824 13.4065 14.1342 12.4631 12.6795 10.4711C11.2248 8.47905 11.0409 5.95516 11.9705 3.84818C10.8449 3.9685 9.72768 4.37162 8.74781 5.08719C5.7759 7.25747 5.12529 11.4308 7.29558 14.4028C9.46586 17.3747 13.6392 18.0253 16.6111 15.855Z" />
-                  </svg>
-                  <span className="text-xs font-bold uppercase tracking-widest">Dark Mode</span>
-                </>
-              )}
-            </button>
+      <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md mb-10">
+        <div className="relative flex-grow">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <Mail className="h-5 w-5 text-gray-400" />
           </div>
-          <div className="md:col-span-8 col-span-12 grid grid-cols-12 gap-4 px-4 sm:px-0">
-            <div className="w-full lg:col-span-4 col-span-12">
-              <h4 className="mb-4 text-lg text-white dark:text-white font-bold uppercase tracking-widest">
-                Our Office
-              </h4>
-              <p className="mb-6 text-gray text-base leading-relaxed">
-                Main Headquarters - Tegeta Branch<br />
-                Dar es Salaam, Tanzania
-              </p>
-              <div className="flex items-center gap-2">
-                <a
-                  aria-label="social link"
-                  href="/#"
-                  className="p-1 rounded-md text-midnight_text bg-white bg-opacity-50 hover:bg-primary"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="fill-current"
-                  >
-                    <path d="M16.294 8.86875H14.369H13.6815V8.18125V6.05V5.3625H14.369H15.8128C16.1909 5.3625 16.5003 5.0875 16.5003 4.675V1.03125C16.5003 0.653125 16.2253 0.34375 15.8128 0.34375H13.3034C10.5878 0.34375 8.69714 2.26875 8.69714 5.12187V8.1125V8.8H8.00964H5.67214C5.19089 8.8 4.74402 9.17812 4.74402 9.72812V12.2031C4.74402 12.6844 5.12214 13.1313 5.67214 13.1313H7.94089H8.62839V13.8188V20.7281C8.62839 21.2094 9.00652 21.6562 9.55652 21.6562H12.7878C12.994 21.6562 13.1659 21.5531 13.3034 21.4156C13.4409 21.2781 13.544 21.0375 13.544 20.8312V13.8531V13.1656H14.2659H15.8128C16.2596 13.1656 16.6034 12.8906 16.6721 12.4781V12.4438V12.4094L17.1534 10.0375C17.1878 9.79688 17.1534 9.52187 16.9471 9.24687C16.8784 9.075 16.569 8.90312 16.294 8.86875Z" />
-                  </svg>
-                </a>
-                <a
-                  aria-label="social link"
-                  href="/#"
-                  className="p-1 rounded-md text-midnight_text bg-white bg-opacity-50 hover:bg-primary"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="fill-current"
-                  >
-                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
-                  </svg>
-                </a>
-                <a
-                  aria-label="social link"
-                  href="/#"
-                  className="p-1 rounded-md text-midnight_text bg-white bg-opacity-50 hover:bg-primary"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="fill-current"
-                  >
-                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div className="w-full lg:col-span-4 col-span-12">
-              <h4 className="mb-4 text-lg text-white dark:text-white font-bold uppercase tracking-widest">
-                Resources
-              </h4>
-              <ul>
-                <li>
-                  <Link href="/faq" className="mb-3 inline-block text-base text-gray hover:text-white">
-                    Help Center
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/impact" className="mb-3 inline-block text-base text-gray hover:text-white">
-                    Social Impact
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blogs" className="mb-3 inline-block text-base text-gray hover:text-white">
-                    Company News
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="w-full lg:col-span-4 col-span-12">
-              <h4 className="mb-4 text-lg text-white dark:text-white font-bold uppercase tracking-widest">
-                Our Solutions
-              </h4>
-              <ul>
-                <li>
-                  <Link href="/#micro-lending" className="mb-3 inline-block text-base text-gray hover:text-white">
-                    Market Trader Loans
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#asset-financing" className="mb-3 inline-block text-base text-gray hover:text-white">
-                    Vehicle Financing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#sme" className="mb-3 inline-block text-base text-gray hover:text-white">
-                    Enterprise Credit
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <input
+            type="email"
+            className="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-700 rounded-lg leading-5 bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white sm:text-sm transition-colors"
+            placeholder="Enter your email address"
+          />
         </div>
+        <button className="bg-black dark:bg-white text-white dark:text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors whitespace-nowrap">
+          Subscribe
+        </button>
       </div>
-      <div className="border-t border-border dark:border-dark_border py-8">
-        <div className="container flex flex-col lg:flex-row justify-between items-center mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-          <div className="lg:max-w-45 max-w-full text-center lg:text-left mb-4 lg:mb-0">
-            <div className="flex lg:flex-nowrap flex-wrap lg:flex-row lg:gap-11 gap-4 text-base sm:text-lg md:text-xl text-black text-opacity-50">
-              <p className="text-white">
-                Hotline :
-                <Link href={`tel:${PHONE.replace(/\s/g, '')}`} className="text-gray hover:text-white ml-2">{PHONE}</Link>
-              </p>
-              <p className="text-white">
-                Support :
-                <Link href={`mailto:${EMAIL}`} className="text-gray hover:text-white ml-2">{EMAIL}</Link>
-              </p>
-            </div>
+    </div>
+  )
+}
+
+function DottedGlobe() {
+  return (
+    <div className="absolute right-0 top-0 bottom-0 w-full md:w-1/2 overflow-hidden pointer-events-none opacity-80">
+      <svg viewBox="0 0 400 400" className="w-full h-full text-white/20">
+        <defs>
+          <radialGradient id="globe-gradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="rgba(255,255,255,0.1)" />
+            <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+          </radialGradient>
+          <mask id="globe-mask">
+            <circle cx="200" cy="200" r="180" fill="white" />
+          </mask>
+        </defs>
+
+        <circle
+          cx="200"
+          cy="200"
+          r="180"
+          fill="url(#globe-gradient)"
+          className="opacity-30"
+        />
+        <circle
+          cx="200"
+          cy="200"
+          r="180"
+          stroke="rgba(255,255,255,0.2)"
+          strokeWidth="1"
+          fill="none"
+        />
+
+        <path
+          d="M 20 200 Q 200 50 380 200"
+          stroke="rgba(168, 85, 247, 0.4)"
+          strokeWidth="2"
+          fill="none"
+        />
+        <path
+          d="M 200 20 Q 350 200 200 380"
+          stroke="rgba(168, 85, 247, 0.2)"
+          strokeWidth="1"
+          fill="none"
+        />
+
+        <g mask="url(#globe-mask)" fill="currentColor">
+          {Array.from({
+            length: 20,
+          }).map((_, row) =>
+            Array.from({
+              length: 20,
+            }).map((_, col) => {
+              const x = 100 + col * 12
+              const y = 80 + row * 12
+              const isInShape =
+                row > 2 &&
+                row < 15 &&
+                col > 3 &&
+                col < 14 &&
+                !(row < 6 && col > 10) &&
+                !(row > 10 && col < 6)
+              if (!isInShape) return null
+              const opacity = 0.3 + Math.random() * 0.7
+              return (
+                <circle
+                  key={`${row}-${col}`}
+                  cx={x}
+                  cy={y}
+                  r={1.5}
+                  className="text-white"
+                  style={{
+                    opacity,
+                  }}
+                />
+              )
+            }),
+          )}
+
+          <circle
+            cx="160"
+            cy="150"
+            r="3"
+            className="text-purple-400 animate-pulse"
+          />
+          <circle
+            cx="160"
+            cy="150"
+            r="8"
+            stroke="rgba(168, 85, 247, 0.5)"
+            fill="none"
+          />
+
+          <circle
+            cx="200"
+            cy="180"
+            r="3"
+            className="text-purple-400 animate-pulse"
+            style={{
+              animationDelay: '0.5s',
+            }}
+          />
+          <circle
+            cx="200"
+            cy="180"
+            r="8"
+            stroke="rgba(168, 85, 247, 0.5)"
+            fill="none"
+          />
+
+          <circle
+            cx="140"
+            cy="220"
+            r="3"
+            className="text-purple-400 animate-pulse"
+            style={{
+              animationDelay: '1s',
+            }}
+          />
+          <circle
+            cx="140"
+            cy="220"
+            r="8"
+            stroke="rgba(168, 85, 247, 0.5)"
+            fill="none"
+          />
+        </g>
+      </svg>
+    </div>
+  )
+}
+
+function PromoCard() {
+  return (
+    <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mb-24 z-10">
+      <div className="relative overflow-hidden rounded-[2.5rem] bg-[#0a0a0a] border border-white/10 shadow-2xl">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-900/40 via-black to-black opacity-80"></div>
+        <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
+
+        <div className="absolute inset-0 backdrop-blur-[2px]"></div>
+
+        <div className="relative flex flex-col md:flex-row items-center justify-between p-10 md:p-16 min-h-[400px]">
+          <div className="w-full md:w-1/2 z-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+              Empowering <br />
+              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 overflow-hidden">
+              Tanzanian Ambition
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 animate-shine" style={{animation: 'shine 3s ease-in-out'}}></span>
+              </span>
+            </h2>
+            <p className="text-gray-300 text-lg mb-8">
+              Flexible financing solutions for traders and businesses
+            </p>
+            <Link href="/#lets-grow" className="bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 active:scale-95 inline-block">
+              Get started
+            </Link>
           </div>
-          <div className="max-w-lg w-full">
-            <div className="flex justify-center lg:justify-end">
-              <p className="items-center flex mr-3 text-base sm:text-lg md:text-xl font-bold text-white uppercase tracking-widest">Newsletter</p>
-              <input
-                type="text"
-                className="py-3 dark:bg-darkmode dark:text-gray !rounded-r-none border border-transparent dark:border-dark_border dark:focus:border-primary focus-visible:outline-none rounded-l-lg px-3 w-full sm:w-auto "
-                placeholder="Email address"
-              />
-              <button className="py-2 px-5 sm:px-9 bg-primary text-base text-white rounded-r-lg hover:bg-blue-700 font-bold uppercase tracking-widest">
-                Subscribe
-              </button>
-            </div>
-          </div>
+
+          <DottedGlobe />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="flex items-center gap-2 text-white opacity-50">
+        <div className="w-12 h-6 bg-gray-700 rounded-full" />
+        <span className="text-sm font-medium">Switch Mood</span>
+        <Sun className="w-4 h-4" />
+      </div>
+    );
+  }
+
+  const isDark = theme === "dark";
+
+  return (
+    <button
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="flex items-center gap-2 text-white hover:text-purple-400 transition-colors group"
+      aria-label="Toggle theme"
+    >
+      <div className="relative w-12 h-6 bg-gray-700 rounded-full transition-colors group-hover:bg-gray-600">
+        <div
+          className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform duration-300 ${isDark ? 'translate-x-6' : 'translate-x-0'}`}
+        />
+      </div>
+      <span className="text-sm font-medium">Switch Mood</span>
+      {isDark ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+    </button>
+  )
+}
+
+function FooterLinks() {
+  return (
+    <div className="bg-black pt-32 pb-12 px-4 sm:px-6 lg:px-8 text-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+          {/* Company Info */}
+          <div className="lg:col-span-4 space-y-8">
+            <Link href="/" className="flex items-center gap-4">
+              <Image
+                src="/nel.png"
+                alt="Nelion Finance Logo"
+                width={40}
+                height={40}
+                className="object-contain"
+              />
+              <span className="text-2xl font-bold tracking-wide">
+                Nelion Finance
+              </span>
+            </Link>
+
+            <div>
+              <h3 className="text-gray-400 font-medium mb-3">Our Office</h3>
+              <div className="text-white space-y-1">
+                <p className="font-semibold">Main Headquarters</p>
+                <p>Tegeta Branch</p>
+                <p>Dar es Salaam, Tanzania</p>
+              </div>
+            </div>
+
+            <div>
+              <ThemeToggle />
+            </div>
+          </div>
+
+          {/* Solutions */}
+          <div className="lg:col-span-2 lg:col-start-7">
+            <h3 className="text-gray-400 font-medium mb-6">Our Solutions</h3>
+            <ul className="space-y-4">
+              {[
+                { label: 'Trader Loans', href: '/#micro-lending' },
+                { label: 'Vehicle Finance', href: '/#asset-financing' },
+                { label: 'Enterprise Credit', href: '/#sme' }
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-white hover:text-purple-400 transition-colors text-sm font-medium"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ),
+              )}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div className="lg:col-span-2">
+            <h3 className="text-gray-400 font-medium mb-6">Resources</h3>
+            <ul className="space-y-4">
+              {[
+                { label: 'Help Center', href: '/faq' },
+                { label: 'Social Impact', href: '/impact' },
+                { label: 'Company News', href: '/blogs' }
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-white hover:text-purple-400 transition-colors text-sm font-medium"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div className="lg:col-span-2">
+            <h3 className="text-gray-400 font-medium mb-6">Support</h3>
+            <ul className="space-y-4">
+              <li>
+                <div className="text-sm">
+                  <p className="text-gray-400 mb-1">Hotline</p>
+                  <Link
+                    href={`tel:${PHONE.replace(/\s/g, '')}`}
+                    className="text-white hover:text-purple-400 transition-colors font-medium"
+                  >
+                    {PHONE}
+                  </Link>
+                </div>
+              </li>
+              <li>
+                <div className="text-sm">
+                  <p className="text-gray-400 mb-1">Email</p>
+                  <Link
+                    href={`mailto:${EMAIL}`}
+                    className="text-white hover:text-purple-400 transition-colors font-medium break-all"
+                  >
+                    {EMAIL}
+                  </Link>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="border-t border-gray-800 pt-8 text-center">
+          <p className="text-gray-400 text-sm">
+            © 2026 Nelion Finance Limited • Empowering Tanzanian Ambition
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default function Footer() {
+  return (
+    <div className="flex flex-col w-full">
+      <NewsletterSection />
+      <div className="bg-black">
+        <div className="-mt-32">
+          <PromoCard />
+        </div>
+        <FooterLinks />
+      </div>
+    </div>
+  )
+}
