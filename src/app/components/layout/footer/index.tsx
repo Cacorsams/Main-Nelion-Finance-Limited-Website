@@ -108,10 +108,10 @@ function DottedGlobe() {
             preserveAspectRatio="xMidYMid meet"
           />
           <circle
-          cx="280"
-          cy="240"
-          r="3"
-          className="text-purple-400 animate-pulse"
+            cx="280"
+            cy="240"
+            r="3"
+            className="text-purple-400 animate-pulse"
           />
 
           <circle
@@ -265,14 +265,36 @@ function FooterLinks() {
             </div>
           </div>
 
-          {/* Solutions */}
-          <div className="lg:col-span-2 lg:col-start-7">
-            <h3 className="text-gray-400 font-medium mb-6">Our Solutions</h3>
+          {/* Company Links */}
+          <div className="lg:col-span-2 lg:col-start-5">
+            <h3 className="text-gray-400 font-medium mb-6">Company</h3>
             <ul className="space-y-4">
               {[
-                { label: 'Trader Loans', href: '/#micro-lending' },
-                { label: 'Vehicle Finance', href: '/#asset-financing' },
-                { label: 'Enterprise Credit', href: '/#sme' }
+                { label: 'Home', href: '/' },
+                { label: 'Careers', href: '/careers' },
+                { label: 'News', href: '/blogs' },
+                { label: 'Contact', href: '/contact' }
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-white hover:text-purple-400 transition-colors text-sm font-medium"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Solutions */}
+          <div className="lg:col-span-2">
+            <h3 className="text-gray-400 font-medium mb-6">Solutions</h3>
+            <ul className="space-y-4">
+              {[
+                { label: 'Micro-Lending', href: '/#micro-lending' },
+                { label: 'Asset Financing', href: '/#asset-financing' },
+                { label: 'SME Financing', href: '/#sme' }
               ].map((item) => (
                 <li key={item.label}>
                   <Link
@@ -292,9 +314,9 @@ function FooterLinks() {
             <h3 className="text-gray-400 font-medium mb-6">Resources</h3>
             <ul className="space-y-4">
               {[
-                { label: 'Help Center', href: '/faq' },
-                { label: 'Social Impact', href: '/impact' },
-                { label: 'Company News', href: '/blogs' }
+                { label: 'FAQ', href: '/faq' },
+                { label: 'Impact', href: '/impact' },
+                { label: 'Let\'s Grow', href: '/#lets-grow' }
               ].map((item) => (
                 <li key={item.label}>
                   <Link
