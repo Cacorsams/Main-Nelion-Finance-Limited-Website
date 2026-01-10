@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import "../../../../app/style/index.css";
 import Link from "next/link";
 import { CURRENCY, LOCATION, PHONE } from "@/constants";
+import { useTranslations } from 'next-intl';
 
 export default function Calculator() {
+  const t = useTranslations('Calculator');
   const [activeTab, setActiveTab] = useState("loan");
   const [loanAmount, setLoanAmount] = useState(500000);
   const [interestRate, setInterestRate] = useState(15);
@@ -42,10 +44,10 @@ export default function Calculator() {
             className="text-4xl mb-4 font-bold text-midnight_text dark:text-white uppercase tracking-tighter"
             data-aos="fade-left"
           >
-            Loan Forecast Tool
+            {t('title')}
           </h2>
           <p className="text-xl text-gray mb-12 dark:text-gray-300 leading-relaxed" data-aos="fade-left">
-            Anticipate your monthly obligations and total borrowing visibility with our precision financial estimator.
+            {t('description')}
           </p>
           <div className="relative-container">
             <div className="main-div mb-16 pt-8">
@@ -58,7 +60,7 @@ export default function Calculator() {
                   <p className="text-3xl text-midnight_text dark:text-white">
                     3%
                   </p>
-                  <p className="text-gray text-base dark:text-gray-300">Interest Rate</p>
+                  <p className="text-gray text-base dark:text-gray-300">{t('interestRate')}</p>
                 </div>
                 <div
                   className="money-dot relative"
@@ -68,7 +70,7 @@ export default function Calculator() {
                   <p className="text-3xl text-midnight_text dark:text-white">
                     5%
                   </p>
-                  <p className="text-gray text-base dark:text-gray-300">Processing Fee</p>
+                  <p className="text-gray text-base dark:text-gray-300">{t('processingFee')}</p>
                 </div>
                 <div
                   className="money-dot relative"
@@ -78,7 +80,7 @@ export default function Calculator() {
                   <p className="text-3xl text-midnight_text dark:text-white">
                     12+
                   </p>
-                  <p className="text-gray text-base dark:text-gray-300">Months Terms</p>
+                  <p className="text-gray text-base dark:text-gray-300">{t('monthsTerms')}</p>
                 </div>
               </div>
             </div>
@@ -88,20 +90,20 @@ export default function Calculator() {
               href="/contact"
               className="text-xl bg-primary py-3 px-8 text-white rounded-lg me-3 mb-2 border border-primary hover:bg-blue-700"
             >
-              Apply Now
+              {t('applyNow')}
             </Link>
             <Link
               href="/learn-more"
               className="text-xl hover:bg-primary hover:text-white py-3 px-8 text-primary border border-primary rounded-lg me-3 mb-2"
             >
-              Learn More
+              {t('learnMore')}
             </Link>
           </div>
         </div>
         <div className="lg:w-auto w-full" data-aos="fade-right">
           <div className="bg-primary rounded-t-lg p-16 w-full">
             <p className="text-4xl text-white mb-6 font-bold flex items-center justify-center">
-              Loan Calculator
+              {t('calculatorTitle')}
             </p>
             <div className="flex justify-center">
               <div className="flex p-3 border-4 rounded-full bg-transparent border-cyan items-center justify-center">
@@ -139,22 +141,22 @@ export default function Calculator() {
             </div>
             <div className="bg-blue-800 rounded-lg p-4 mb-4">
               <div className="flex justify-between mb-2">
-                <p className="text-white text-sm opacity-80">Monthly Payment:</p>
+                <p className="text-white text-sm opacity-80">{t('monthlyPayment')}:</p>
                 <p className="text-white font-bold">{CURRENCY} {Math.round(monthlyPayment).toLocaleString()}</p>
               </div>
               <div className="flex justify-between">
-                <p className="text-white text-sm opacity-80">Total Payment:</p>
+                <p className="text-white text-sm opacity-80">{t('totalPayment')}:</p>
                 <p className="text-white font-bold">{CURRENCY} {Math.round(totalPayment).toLocaleString()}</p>
               </div>
             </div>
           </div>
           <div className="p-4 bg-blue-700 text-white text-xl rounded-b-lg">
-            <p className="text-center mb-1 opacity-70 italic font-medium">Seeking Professional Guidance?</p>
+            <p className="text-center mb-1 opacity-70 italic font-medium">{t('professionalGuidance')}</p>
             <Link
               href={`tel:${PHONE.replace(/\s/g, '')}`}
               className="text-center font-bold inline-block w-full py-2 hover:translate-x-1 transition-transform"
             >
-              <span className="opacity-70 !font-normal">Connect via Hotline: </span>{PHONE}
+              <span className="opacity-70 !font-normal">{t('connectHotline')}: </span>{PHONE}
             </Link>
             <p className="text-center mt-3 text-xs opacity-60 uppercase tracking-widest">{LOCATION}</p>
           </div>

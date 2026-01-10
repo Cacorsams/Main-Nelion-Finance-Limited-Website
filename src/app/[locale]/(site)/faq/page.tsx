@@ -1,40 +1,41 @@
 "use client";
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { COMPANY_NAME } from '@/constants';
-
-const faqs = [
-    {
-        question: `What is ${COMPANY_NAME}'s primary financial offering?`,
-        answer: "Our 'Endeleza Growth Fund' is our premier 30-day liquidity solution tailored for rapid inventory turnover and business scaling."
-    },
-    {
-        question: "How do I start the application process?",
-        answer: "Simply visit our Tegeta headquarters or use our digital portal to submit your request. Our team evaluates applications within 24 hours."
-    },
-    {
-        question: "Who are your ideal customers?",
-        answer: "We specifically support small-scale entrepreneurs and traders who manage short-cycle inventory and distribution networks."
-    },
-    {
-        question: "What are the core requirements for a business credit line?",
-        answer: "Criteria include: 1. Minimum 6 months of active business operations; 2. Valid National ID; 3. Established physical business location; 4. Documentation of ownership; 5. Registration with local mobile or banking networks."
-    },
-    {
-        question: `Why should I partner with ${COMPANY_NAME}?`,
-        answer: "We focus on outcomes. We succeed only when your business thrives, providing the most competitive terms and dedicated relationship management in Tanzania."
-    }
-];
+import { useTranslations } from 'next-intl';
 
 export default function FAQ() {
+    const t = useTranslations('FAQ');
+    const faqs = [
+        {
+            question: t("q1"),
+            answer: t("a1")
+        },
+        {
+            question: t("q2"),
+            answer: t("a2")
+        },
+        {
+            question: t("q3"),
+            answer: t("a3")
+        },
+        {
+            question: t("q4"),
+            answer: t("a4")
+        },
+        {
+            question: t("q5"),
+            answer: t("a5")
+        }
+    ];
+
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
         <section className="pt-32 pb-20 dark:bg-darkmode min-h-screen">
             <div className="container lg:max-w-screen-xl md:max-w-screen-md mx-auto px-4">
                 <div className="text-center mb-16" data-aos="fade-up">
-                    <h1 className="text-5xl font-extrabold text-midnight_text dark:text-white uppercase tracking-tighter mb-4">Support & FAQ</h1>
-                    <p className="text-xl text-gray dark:text-gray-400">Everything you need to know about our lending solutions.</p>
+                    <h1 className="text-5xl font-extrabold text-midnight_text dark:text-white uppercase tracking-tighter mb-4">{t('title')}</h1>
+                    <p className="text-xl text-gray dark:text-gray-400">{t('subtitle')}</p>
                 </div>
 
                 <div className="max-w-3xl mx-auto space-y-4">

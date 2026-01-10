@@ -1,22 +1,22 @@
 import { NextResponse } from "next/server";
 
 const headerData = [
-  { label: "Home", href: "/" },
-  { label: "Let's Grow", href: "/#lets-grow" },
+  { label: "home", href: "/" },
+  { label: "letsGrow", href: "/#lets-grow" },
   {
-    label: "Business",
+    label: "business",
     href: "#",
     submenu: [
-      { label: "Micro-Lending", href: "/#micro-lending" },
-      { label: "Asset Financing", href: "/#asset-financing" },
-      { label: "SME Financing", href: "/#sme" },
+      { label: "microLending", href: "/#micro-lending" },
+      { label: "assetFinancing", href: "/#asset-financing" },
+      { label: "smeFinancing", href: "/#sme" },
     ],
   },
-  { label: "Impact", href: "/impact" },
-  { label: "Careers", href: "/careers" },
-  { label: "News", href: "/blogs" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "impact", href: "/impact" },
+  { label: "careers", href: "/careers" },
+  { label: "news", href: "/blogs" },
+  { label: "faq", href: "/faq" },
+  { label: "contact", href: "/contact" },
 ];
 
 export const GET = async () => {

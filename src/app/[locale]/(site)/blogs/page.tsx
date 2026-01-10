@@ -9,18 +9,23 @@ export const metadata: Metadata = {
     title: `Insights & Momentum | ${COMPANY_NAME}`,
 };
 
-const Blog = () => {
-    const posts = getAllPosts(["title", "date", "excerpt", "coverImage", "slug"]);
+import { useTranslations } from 'next-intl';
+
+const Blog = ({ params }: { params: { locale: string } }) => {
+    const { locale } = params;
+    const t = useTranslations('Blogs');
+    const navT = useTranslations('Navigation');
+    const posts = getAllPosts(["title", "date", "excerpt", "coverImage", "slug"], locale);
     const breadcrumbLinks = [
-        { href: "/", text: "Home" },
-        { href: "/blogs", text: "News & Insights" },
+        { href: "/", text: navT("home") },
+        { href: "/blogs", text: navT("blogs") },
     ];
 
     return (
         <div className="bg-white dark:bg-darkmode min-h-screen">
             <HeroSub
-                title="Knowledge Hub"
-                description="Strategic financial insights and community growth narratives designed to empower the Tanzanian entrepreneur."
+                title={t('title')}
+                description={t('description')}
                 breadcrumbLinks={breadcrumbLinks}
             />
             <section className="py-20 px-4 relative">

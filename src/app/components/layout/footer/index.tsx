@@ -1,21 +1,23 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from '@/i18n/routing';
 import { Mail, Moon, Sun } from 'lucide-react';
 import { useTheme } from "next-themes";
 import { PHONE, EMAIL, LOCATION, COMPANY_NAME } from '@/constants';
 import { toast } from 'sonner';
+import { useTranslations } from 'next-intl';
 
 // --- Sub-components ---
 function NewsletterSection() {
+  const t = useTranslations('Footer');
   return (
     <div className="w-full bg-white dark:bg-gray-900 py-20 px-4 flex flex-col items-center text-center transition-colors duration-300">
       <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4 tracking-tight">
-        Subscribe
+        {t('subscribe')}
       </h2>
       <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-lg text-lg">
-        We respect your financial privacy
+        {t('privacy')}
       </p>
 
       <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md mb-10">
@@ -26,11 +28,11 @@ function NewsletterSection() {
           <input
             type="email"
             className="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-700 rounded-lg leading-5 bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white sm:text-sm transition-colors"
-            placeholder="Enter your email address"
+            placeholder={t('emailPlaceholder')}
           />
         </div>
         <button className="bg-black dark:bg-white text-white dark:text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors whitespace-nowrap">
-          Subscribe
+          {t('subscribe')}
         </button>
       </div>
     </div>
@@ -162,6 +164,7 @@ function DottedGlobe() {
 }
 
 function PromoCard() {
+  const t = useTranslations('Footer');
   return (
     <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mb-24 z-10">
       <div className="relative overflow-hidden rounded-[2.5rem] bg-[#0a0a0a] border border-white/10 shadow-2xl">
@@ -172,18 +175,14 @@ function PromoCard() {
 
         <div className="relative flex flex-col md:flex-row items-center justify-between p-10 md:p-16 min-h-[400px]">
           <div className="w-full md:w-1/2 z-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-              Empowering <br />
-              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 overflow-hidden">
-                Tanzanian Ambition
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 animate-shine" style={{ animation: 'shine 3s ease-in-out' }}></span>
-              </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight whitespace-pre-line">
+              {t('empowering')}
             </h2>
             <p className="text-gray-300 text-lg mb-8">
-              Flexible financing solutions for traders and businesses
+              {t('flexible')}
             </p>
             <Link href="/#lets-grow" className="bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 active:scale-95 inline-block">
-              Get started
+              {t('getStarted')}
             </Link>
           </div>
 
@@ -196,6 +195,7 @@ function PromoCard() {
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const t = useTranslations('Footer');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -206,7 +206,7 @@ function ThemeToggle() {
     return (
       <div className="flex items-center gap-2 text-white opacity-50">
         <div className="w-12 h-6 bg-gray-700 rounded-full" />
-        <span className="text-sm font-medium">Switch Mood</span>
+        <span className="text-sm font-medium">{t('switchMood')}</span>
         <Sun className="w-4 h-4" />
       </div>
     );
@@ -225,13 +225,15 @@ function ThemeToggle() {
           className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform duration-300 ${isDark ? 'translate-x-6' : 'translate-x-0'}`}
         />
       </div>
-      <span className="text-sm font-medium">Switch Mood</span>
+      <span className="text-sm font-medium">{t('switchMood')}</span>
       {isDark ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
     </button>
   )
 }
 
 function FooterLinks() {
+  const t = useTranslations('Footer');
+  const navT = useTranslations('Navigation');
   return (
     <div className="bg-black pt-32 pb-12 px-4 sm:px-6 lg:px-8 text-white">
       <div className="max-w-7xl mx-auto">
@@ -252,10 +254,10 @@ function FooterLinks() {
             </Link>
 
             <div>
-              <h3 className="text-gray-400 font-medium mb-3">Our Office</h3>
+              <h3 className="text-gray-400 font-medium mb-3">{t('ourOffice')}</h3>
               <div className="text-white space-y-1">
-                <p className="font-semibold">Main Headquarters</p>
-                <p>Tegeta Branch</p>
+                <p className="font-semibold">{t('headquarters')}</p>
+                <p>{t('tegetaBranch')}</p>
                 <p>Dar es Salaam, Tanzania</p>
               </div>
             </div>
@@ -267,20 +269,20 @@ function FooterLinks() {
 
           {/* Company Links */}
           <div className="lg:col-span-2 lg:col-start-5">
-            <h3 className="text-gray-400 font-medium mb-6">Company</h3>
+            <h3 className="text-gray-400 font-medium mb-6">{t('company')}</h3>
             <ul className="space-y-4">
               {[
-                { label: 'Home', href: '/' },
-                { label: 'Careers', href: '/careers' },
-                { label: 'News', href: '/blogs' },
-                { label: 'Contact', href: '/contact' }
+                { label: 'home', href: '/' },
+                { label: 'careers', href: '/careers' },
+                { label: 'news', href: '/blogs' },
+                { label: 'contact', href: '/contact' }
               ].map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
                     className="text-white hover:text-purple-400 transition-colors text-sm font-medium"
                   >
-                    {item.label}
+                    {navT(item.label as any)}
                   </Link>
                 </li>
               ))}
@@ -289,19 +291,19 @@ function FooterLinks() {
 
           {/* Solutions */}
           <div className="lg:col-span-2">
-            <h3 className="text-gray-400 font-medium mb-6">Solutions</h3>
+            <h3 className="text-gray-400 font-medium mb-6">{t('solutions')}</h3>
             <ul className="space-y-4">
               {[
-                { label: 'Micro-Lending', href: '/#micro-lending' },
-                { label: 'Asset Financing', href: '/#asset-financing' },
-                { label: 'SME Financing', href: '/#sme' }
+                { label: 'microLending', href: '/#micro-lending' },
+                { label: 'assetFinancing', href: '/#asset-financing' },
+                { label: 'smeFinancing', href: '/#sme' }
               ].map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
                     className="text-white hover:text-purple-400 transition-colors text-sm font-medium"
                   >
-                    {item.label}
+                    {navT(item.label as any)}
                   </Link>
                 </li>
               ),
@@ -311,19 +313,19 @@ function FooterLinks() {
 
           {/* Resources */}
           <div className="lg:col-span-2">
-            <h3 className="text-gray-400 font-medium mb-6">Resources</h3>
+            <h3 className="text-gray-400 font-medium mb-6">{t('resources')}</h3>
             <ul className="space-y-4">
               {[
-                { label: 'FAQ', href: '/faq' },
-                { label: 'Impact', href: '/impact' },
-                { label: 'Let\'s Grow', href: '/#lets-grow' }
+                { label: 'faq', href: '/faq' },
+                { label: 'impact', href: '/impact' },
+                { label: 'letsGrow', href: '/#lets-grow' }
               ].map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
                     className="text-white hover:text-purple-400 transition-colors text-sm font-medium"
                   >
-                    {item.label}
+                    {navT(item.label as any)}
                   </Link>
                 </li>
               ))}
@@ -332,11 +334,11 @@ function FooterLinks() {
 
           {/* Contact */}
           <div className="lg:col-span-2">
-            <h3 className="text-gray-400 font-medium mb-6">Support</h3>
+            <h3 className="text-gray-400 font-medium mb-6">{t('support')}</h3>
             <ul className="space-y-4">
               <li>
                 <div className="text-sm">
-                  <p className="text-gray-400 mb-1">Hotline</p>
+                  <p className="text-gray-400 mb-1">{t('hotline')}</p>
                   <Link
                     href={`tel:${PHONE.replace(/\s/g, '')}`}
                     className="text-white hover:text-purple-400 transition-colors font-medium"
@@ -347,7 +349,7 @@ function FooterLinks() {
               </li>
               <li>
                 <div className="text-sm">
-                  <p className="text-gray-400 mb-1">Email</p>
+                  <p className="text-gray-400 mb-1">{t('email')}</p>
                   <Link
                     href={`mailto:${EMAIL}`}
                     className="text-white hover:text-purple-400 transition-colors font-medium break-all"
@@ -363,7 +365,7 @@ function FooterLinks() {
         {/* Copyright */}
         <div className="border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © 2026 Nelion Finance Limited • Empowering Tanzanian Ambition
+            {t('copyright')}
           </p>
         </div>
       </div>

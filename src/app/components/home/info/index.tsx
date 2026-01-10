@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 const AnimatedCounter = ({ value, suffix = '', duration = 4 }: { value: number; suffix?: string; duration?: number }) => {
     const ref = useRef<HTMLSpanElement>(null);
@@ -35,11 +36,12 @@ const AnimatedCounter = ({ value, suffix = '', duration = 4 }: { value: number; 
 };
 
 export default function CompanyInfo() {
+    const t = useTranslations('Stats');
     const stats = [
-        { id: 1, value: 3, label: "Branches In Tanzania", suffix: "", dataAos: "fade-right" },
-        { id: 2, value: 1273, label: "Total Loans Disbursed", suffix: "", dataAos: "fade-up" },
-        { id: 3, value: 997, label: "Total Repeat Loans", suffix: "", dataAos: "fade-up" },
-        { id: 4, value: 209, label: "New Client Loans", suffix: "", dataAos: "fade-left" },
+        { id: 1, value: 3, label: t("branches"), suffix: "", dataAos: "fade-right" },
+        { id: 2, value: 1273, label: t("totalDisbursed"), suffix: "", dataAos: "fade-up" },
+        { id: 3, value: 997, label: t("totalRepeat"), suffix: "", dataAos: "fade-up" },
+        { id: 4, value: 209, label: t("newClientLoans"), suffix: "", dataAos: "fade-left" },
     ];
 
     return (

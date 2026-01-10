@@ -5,8 +5,10 @@ import { PHONE, EMAIL, LOCATION, COMPANY_NAME } from '@/constants';
 import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import { toast } from 'sonner';
+import { useTranslations } from 'next-intl';
 
 export default function ContactPage() {
+  const t = useTranslations('Contact');
   return (
     <section className="pt-32 pb-20 dark:bg-darkmode min-h-screen overflow-hidden">
       <div className="container lg:max-w-screen-xl md:max-w-screen-md mx-auto px-4">
@@ -16,10 +18,10 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7" data-aos="fade-right">
               <h1 className="text-6xl md:text-8xl font-black text-midnight_text dark:text-white uppercase tracking-tighter leading-none mb-8">
-                Contact <span className="text-primary italic">Us</span>
+                {t('title')} <span className="text-primary italic">{t('us')}</span>
               </h1>
               <p className="text-2xl text-gray dark:text-gray-400 font-medium leading-relaxed max-w-2xl">
-                We're here to bridge the gap between your ambition and the capital required to achieve it. Reach out to our Tegeta headquarters.
+                {t('subtitle')}
               </p>
             </div>
             <div className="lg:col-span-5 relative" data-aos="fade-left">
@@ -49,9 +51,9 @@ export default function ContactPage() {
                   <Icon icon="mdi:map-marker" className="text-3xl" />
                 </div>
                 <div>
-                  <h3 className="text-xs uppercase font-black text-primary tracking-widest mb-2">Our Headquarters</h3>
+                  <h3 className="text-xs uppercase font-black text-primary tracking-widest mb-2">{t('headquarters')}</h3>
                   <p className="text-xl font-bold text-midnight_text dark:text-white leading-tight uppercase tracking-tight">
-                    Tegeta Branch<br />Main Office in Tanzania
+                    {t('branch')}<br />{t('mainOffice')}
                   </p>
                   <p className="text-gray-500 dark:text-gray-400 mt-2 font-medium">{LOCATION}</p>
                 </div>
@@ -65,7 +67,7 @@ export default function ContactPage() {
                     <Icon icon="mdi:phone" className="text-2xl" />
                   </div>
                   <div>
-                    <h3 className="text-[10px] uppercase font-black text-gray-400 tracking-widest mb-1">Direct Hotline</h3>
+                    <h3 className="text-[10px] uppercase font-black text-gray-400 tracking-widest mb-1">{t('hotline')}</h3>
                     <p className="text-lg font-bold text-midnight_text dark:text-white">{PHONE}</p>
                   </div>
                 </div>
@@ -77,7 +79,7 @@ export default function ContactPage() {
                     <Icon icon="mdi:email" className="text-2xl" />
                   </div>
                   <div>
-                    <h3 className="text-[10px] uppercase font-black text-gray-400 tracking-widest mb-1">Electronic Mail</h3>
+                    <h3 className="text-[10px] uppercase font-black text-gray-400 tracking-widest mb-1">{t('email')}</h3>
                     <p className="text-lg font-bold text-midnight_text dark:text-white break-all">{EMAIL}</p>
                   </div>
                 </div>
@@ -90,7 +92,7 @@ export default function ContactPage() {
             <div className="h-full bg-gray-100 dark:bg-gray-800 p-10 md:p-16 rounded-[4rem] relative overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-primary/5 blur-[100px] pointer-events-none" />
               <div className="relative z-10 w-full">
-                <h3 className="text-3xl font-black text-midnight_text dark:text-white uppercase tracking-tighter italic mb-10">Initiate Your Lending Journey</h3>
+                <h3 className="text-3xl font-black text-midnight_text dark:text-white uppercase tracking-tighter italic mb-10">{t('formTitle')}</h3>
                 <form
                   className="space-y-8"
                   onSubmit={async (e) => {
@@ -108,7 +110,7 @@ export default function ContactPage() {
                     const btn = e.currentTarget.querySelector('button');
                     if (btn) btn.disabled = true;
 
-                    const toastId = toast.loading('Transmitting inquiry...');
+                    const toastId = toast.loading(t('transmitting'));
 
                     try {
                       const res = await fetch('/api/resendapi', {
@@ -120,13 +122,13 @@ export default function ContactPage() {
                       const result = await res.json();
 
                       if (res.ok) {
-                        toast.success('Inquiry transmitted successfully. We will contact you soon.', { id: toastId });
+                        toast.success(t('success'), { id: toastId });
                         (e.target as HTMLFormElement).reset();
                       } else {
-                        toast.error(result.error || 'Failed to transmit inquiry.', { id: toastId });
+                        toast.error(result.error || t('error'), { id: toastId });
                       }
                     } catch (err) {
-                      toast.error('An error occurred. Please try again later.', { id: toastId });
+                      toast.error(t('genericError'), { id: toastId });
                     } finally {
                       if (btn) btn.disabled = false;
                     }
@@ -134,32 +136,32 @@ export default function ContactPage() {
                 >
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="space-y-3">
-                      <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">Your Full Identity</label>
-                      <input name="name" type="text" required className="w-full bg-white border border-gray-200 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-black placeholder-gray-400 font-medium" placeholder="E.g. Juma Kapuya" />
+                      <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">{t('nameLabel')}</label>
+                      <input name="name" type="text" required className="w-full bg-white border border-gray-200 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-black placeholder-gray-400 font-medium" placeholder={t('namePlaceholder')} />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">Email Address</label>
-                      <input name="email" type="email" required className="w-full bg-white border border-gray-200 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-black placeholder-gray-400 font-medium" placeholder="your@email.com" />
+                      <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">{t('emailLabel')}</label>
+                      <input name="email" type="email" required className="w-full bg-white border border-gray-200 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-black placeholder-gray-400 font-medium" placeholder={t('emailPlaceholder')} />
                     </div>
                   </div>
                   <div className="space-y-3">
-                    <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">Contact Sequence (Phone)</label>
-                    <input name="contactSequence" type="tel" className="w-full bg-white border border-gray-200 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-black placeholder-gray-400 font-medium" placeholder="+255..." />
+                    <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">{t('phoneLabel')}</label>
+                    <input name="contactSequence" type="tel" className="w-full bg-white border border-gray-200 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-black placeholder-gray-400 font-medium" placeholder={t('phonePlaceholder')} />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">Strategic Requirement</label>
+                    <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">{t('requirementLabel')}</label>
                     <select name="strategicRequirement" className="w-full bg-white border border-gray-200 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-black font-medium appearance-none">
-                      <option>Endeleza Growth Fund</option>
-                      <option>Other</option>
+                      <option>{t('endelezaFund')}</option>
+                      <option>{t('other')}</option>
 
                     </select>
                   </div>
                   <div className="space-y-3">
-                    <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">Narrative of Inquiry</label>
-                    <textarea name="message" required className="w-full bg-white border border-gray-200 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-black font-medium h-40 resize-none" placeholder="How can we empower your vision?"></textarea>
+                    <label className="text-[10px] uppercase font-black text-midnight_text dark:text-white/50 tracking-[0.2em] ml-2">{t('narrativeLabel')}</label>
+                    <textarea name="message" required className="w-full bg-white border border-gray-200 p-5 rounded-2xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-black font-medium h-40 resize-none" placeholder={t('narrativePlaceholder')}></textarea>
                   </div>
                   <button type="submit" className="w-full bg-primary text-white py-6 rounded-3xl font-black uppercase tracking-[0.2em] hover:bg-blue-700 hover:shadow-2xl hover:shadow-primary/40 transition-all shadow-xl shadow-primary/20 text-lg disabled:opacity-50">
-                    Transmit Inquiry
+                    {t('transmit')}
                   </button>
                 </form>
               </div>
@@ -176,9 +178,9 @@ export default function ContactPage() {
                 <div className="size-10 bg-primary rounded-xl flex items-center justify-center text-white">
                   <Icon icon="mdi:pin" className="text-xl" />
                 </div>
-                <h4 className="font-black uppercase tracking-tighter italic text-midnight_text dark:text-white">Tegeta HQ</h4>
+                <h4 className="font-black uppercase tracking-tighter italic text-midnight_text dark:text-white">{t('mapHq')}</h4>
               </div>
-              <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Our flagship branch and primary operations center for East African strategy.</p>
+              <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">{t('mapDesc')}</p>
               <p className="text-xs font-bold text-primary uppercase tracking-widest leading-relaxed">{LOCATION}</p>
             </div>
             <iframe

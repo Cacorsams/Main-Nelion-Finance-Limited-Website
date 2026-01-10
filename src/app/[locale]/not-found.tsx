@@ -1,23 +1,26 @@
 
 import { Metadata } from "next";
-import HeroSub from "./components/shared/hero-sub";
-import Link from "next/link";
+import HeroSub from "../components/shared/hero-sub";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export const metadata: Metadata = {
   title: "404 Page | Property-pro",
 };
 
 const ErrorPage = () => {
+  const t = useTranslations('NotFound');
+  const navT = useTranslations('Navigation');
   const breadcrumbLinks = [
-    { href: "/", text: "Home" },
+    { href: "/", text: navT("home") },
     { href: "/contact", text: "404" },
   ];
   return (
     <>
       <HeroSub
-        title="404"
-        description="We Can't Seem to Find The Page You're Looking For."
+        title={t('title')}
+        description={t('description')}
         breadcrumbLinks={breadcrumbLinks}
       />
       <section className="bg-white pt-8 pb-20 dark:bg-darkmode">
@@ -70,17 +73,16 @@ const ErrorPage = () => {
                   </svg>
                 </div>
                 <h3 className="mb-5 text-2xl font-semibold text-midnight_text dark:text-white">
-                  We Can&#39;t Seem to Find The Page You&#39;re Looking For.
+                  {t('description')}
                 </h3>
                 <p className="mb-8 text-base text-body-color dark:text-dark-6">
-                  Oops! The page you are looking for does not exist. It might have
-                  been moved or deleted.
+                  {t('oops')}
                 </p>
                 <Link
                   href="/"
                   className="rounded-md px-7 py-3 text-base font-medium text-white transition hover:bg-blue-700 bg-primary"
                 >
-                  Go To Home
+                  {t('goHome')}
                 </Link>
               </div>
             </div>

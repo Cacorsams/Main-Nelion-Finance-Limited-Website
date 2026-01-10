@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import Logo from "./logo";
 import HeaderLink from "./navigation/HeaderLink";
 import MobileHeaderLink from "./navigation/MobileHeaderLink";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Header: React.FC = () => {
   const pathUrl = usePathname();
@@ -68,6 +69,7 @@ const Header: React.FC = () => {
           ))}
         </nav>
         <div className="flex items-center space-x-4">
+          <LanguageSwitcher />
           <button
             onClick={() => setNavbarOpen(!navbarOpen)}
             className="block lg:hidden p-2 rounded-lg"

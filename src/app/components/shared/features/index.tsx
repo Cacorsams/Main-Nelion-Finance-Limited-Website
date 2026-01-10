@@ -2,7 +2,10 @@
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
+import { useTranslations } from 'next-intl';
+
 export default function Features() {
+    const t = useTranslations('WhyPartner');
     const [propertiesData, setPropertiesData] = useState<any[]>([
         {
             id: 1,
@@ -36,18 +39,18 @@ export default function Features() {
 
     const advantages = [
         {
-            title: "Tailored Financial Solutions",
-            description: "We recognize that every client's economic circumstances are distinct. Our advisors take the time to evaluate your liquidity, assess current commitments, and propose strategies that ensure you obtain the most beneficial terms.",
+            title: t("tailoredSolutions"),
+            description: t("tailoredSolutionsDesc"),
             icon: "/images/features/rating.svg"
         },
         {
-            title: "Collaborative Synergy",
-            description: "Our specialists partner directly with certified distributors and vehicle yards to locate optimal assets at the most advantageous rates for your enterprise.",
+            title: t("collaborativeSynergy"),
+            description: t("collaborativeSynergyDesc"),
             icon: "/images/features/live-chat.svg"
         },
         {
-            title: "Commitment to Your Growth",
-            description: "We are deeply invested in supporting local visionaries, entrepreneurs, and established businesses across Tanzania in achieving their operational milestones. With Nelion, you gain a dedicated ally in your long-term success.",
+            title: t("commitmentGrowth"),
+            description: t("commitmentGrowthDesc"),
             icon: "/images/features/Give-Women's-Rights.svg"
         }
     ];
@@ -74,17 +77,17 @@ export default function Features() {
                                 <div className="absolute -bottom-10 -right-4 md:right-10 max-w-sm bg-white dark:bg-darklight p-4 rounded-2xl shadow-2xl border border-primary/10" data-aos="fade-up" data-aos-delay="300">
                                     <div className="flex items-center gap-4 mb-3">
                                         <div className="bg-primary/10 p-2 rounded-lg text-primary font-bold text-xs uppercase tracking-widest">
-                                            Spotlight
+                                            {t('spotlight')}
                                         </div>
                                         <h4 className="font-bold text-midnight_text dark:text-white uppercase text-sm tracking-tight">{featuredLoan.title}</h4>
                                     </div>
                                     <div className="flex justify-between items-end border-t border-border dark:border-dark_border pt-3">
                                         <div>
-                                            <p className="text-[10px] text-gray uppercase font-bold mb-1">Max Limit</p>
+                                            <p className="text-[10px] text-gray uppercase font-bold mb-1">{t('maxLimit')}</p>
                                             <p className="text-xl font-bold text-primary">{featuredLoan.amount?.split('-')[1] || featuredLoan.amount}</p>
                                         </div>
                                         <div className="bg-primary text-white text-[10px] font-bold py-1 px-3 rounded-full uppercase">
-                                            Apply Now
+                                            {t('applyNow')}
                                         </div>
                                     </div>
                                 </div>
@@ -94,8 +97,8 @@ export default function Features() {
 
                     {/* Content Section */}
                     <div className='lg:w-1/2 w-full flex flex-col justify-center' data-aos="fade-left">
-                        <h2 className='mb-6 text-4xl font-bold text-midnight_text dark:text-white uppercase tracking-tighter'>Why Partner with Nelion?</h2>
-                        <p className="text-gray dark:text-gray-300 text-lg mb-10 leading-relaxed uppercase tracking-wide opacity-80">Empowering Tanzanian visionaries with precision credit and strategic support.</p>
+                        <h2 className='mb-6 text-4xl font-bold text-midnight_text dark:text-white uppercase tracking-tighter'>{t('title')}</h2>
+                        <p className="text-gray dark:text-gray-300 text-lg mb-10 leading-relaxed uppercase tracking-wide opacity-80">{t('subtitle')}</p>
 
                         <div className="space-y-10">
                             {advantages.map((item, index) => (

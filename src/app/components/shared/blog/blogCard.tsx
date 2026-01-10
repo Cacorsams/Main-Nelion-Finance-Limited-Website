@@ -4,8 +4,10 @@ import { format } from "date-fns";
 import Link from "next/link";
 import { Blog } from "@/app/types/data/blog";
 import { Icon } from "@iconify/react";
+import { useTranslations } from "next-intl";
 
 const BlogCard: FC<{ blog: Blog }> = ({ blog }) => {
+    const t = useTranslations('Blogs');
     const { title, coverImage, excerpt, date, slug } = blog;
     return (
         <Link href={`/blogs/${slug}`} className="flex flex-col sm:flex-row gap-6 group overflow-hidden p-4">
@@ -34,7 +36,7 @@ const BlogCard: FC<{ blog: Blog }> = ({ blog }) => {
                 </p>
                 <div className="flex items-center gap-2 mt-2 group/btn">
                     <span className="text-midnight_text dark:text-white font-black uppercase text-xs tracking-widest border-b-2 border-primary pb-1">
-                        Read Narrative
+                        {t('readNarrative')}
                     </span>
                     <Icon icon="mdi:arrow-right" className="text-primary group-hover/btn:translate-x-2 transition-transform" />
                 </div>

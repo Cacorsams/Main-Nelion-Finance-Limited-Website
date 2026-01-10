@@ -3,10 +3,12 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { COMPANY_NAME } from "@/constants";
+import { useTranslations } from 'next-intl';
 
 import Counter from "../../shared/counter";
 
 const Hero = () => {
+  const t = useTranslations('Hero');
   return (
     <section className="relative pt-44 pb-20 dark:bg-darklight bg-no-repeat bg-gradient-to-b from-white from-10% dark:from-darkmode to-herobg to-90% dark:to-darklight overflow-x-hidden">
       <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md relative z-10">
@@ -16,11 +18,11 @@ const Hero = () => {
             data-aos="fade-right"
           >
             <div className="mb-8 pl-4">
-              <h1 className="md:text-[50px] leading-[1.2] text-4xl text-midnight_text dark:text-white font-bold uppercase tracking-tight">
-                Building Strong Futures Through<br />Financial Solutions
+              <h1 className="md:text-[50px] leading-[1.2] text-4xl text-midnight_text dark:text-white font-bold uppercase tracking-tight whitespace-pre-line">
+                {t('title')}
               </h1>
               <p className="text-xl md:text-2xl mt-4 text-gray-600 dark:text-gray-300 italic opacity-80">
-                "Small choices often yield the most significant results"
+                {t('quote')}
               </p>
             </div>
             <div className="max-w-xl pl-4 sm:w-full mt-8">
@@ -35,7 +37,7 @@ const Hero = () => {
                     <Counter from={0} to={93} suffix="%" />
                   </p>
                   <p className="text-sm text-gray dark:text-gray-400 font-medium">
-                    Return Rate of Loyal Patrons Monthly
+                    {t('returnRate')}
                   </p>
                 </motion.div>
                 <motion.div
@@ -48,7 +50,7 @@ const Hero = () => {
                     <Counter from={0} to={80} suffix="%" />
                   </p>
                   <p className="text-sm text-gray dark:text-gray-400 font-medium">
-                    Female-Owned Ventures in Diverse Areas
+                    {t('femaleOwned')}
                   </p>
                 </motion.div>
                 <motion.div
@@ -61,7 +63,7 @@ const Hero = () => {
                     <Counter from={0} to={75} suffix="%" />
                   </p>
                   <p className="text-sm text-gray dark:text-gray-400 font-medium">
-                    Gains in Schooling for Funded Households
+                    {t('schoolingGains')}
                   </p>
                 </motion.div>
               </div>
