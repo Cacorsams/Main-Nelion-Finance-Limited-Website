@@ -178,7 +178,7 @@ function PromoCard() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight whitespace-pre-line">
               {t('empowering')}
             </h2>
-            <p className="text-gray-300 text-lg mb-8">
+            <p className="hidden md:block text-gray-300 text-lg mb-8">
               {t('flexible')}
             </p>
             <Link href="/#lets-grow" className="bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 active:scale-95 inline-block">
