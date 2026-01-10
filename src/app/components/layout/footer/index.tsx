@@ -61,8 +61,9 @@ function DottedGlobe() {
           cx="200"
           cy="200"
           r="180"
+          stroke="rgba(245, 240, 240, 0.11)"
           fill="url(#globe-gradient)"
-          className="opacity-30"
+          className="opacity-70000"
         />
         <circle
           cx="200"
@@ -74,13 +75,13 @@ function DottedGlobe() {
         />
 
         <path
-          d="M 20 200 Q 200 50 380 200"
+          d="M 20 300 Q 600 50 380 200"
           stroke="rgba(168, 85, 247, 0.4)"
           strokeWidth="2"
           fill="none"
         />
         <path
-          d="M 200 20 Q 350 200 200 380"
+          d="M 200 20 Q 350 600 200 380"
           stroke="rgba(168, 85, 247, 0.2)"
           strokeWidth="1"
           fill="none"
@@ -93,49 +94,37 @@ function DottedGlobe() {
             Array.from({
               length: 20,
             }).map((_, col) => {
-              const x = 100 + col * 12
-              const y = 80 + row * 12
-              const isInShape =
-                row > 2 &&
-                row < 15 &&
-                col > 3 &&
-                col < 14 &&
-                !(row < 6 && col > 10) &&
-                !(row > 10 && col < 6)
-              if (!isInShape) return null
-              const opacity = 0.3 + Math.random() * 0.7
-              return (
-                <circle
-                  key={`${row}-${col}`}
-                  cx={x}
-                  cy={y}
-                  r={1.5}
-                  className="text-white"
-                  style={{
-                    opacity,
-                  }}
-                />
-              )
+              return null
             }),
           )}
 
-          <circle
-            cx="160"
-            cy="150"
-            r="3"
-            className="text-purple-400 animate-pulse"
+          <image
+            href="/africa.png"
+            x="80"
+            y="60"
+            width="240"
+            height="280"
+            opacity="0.8"
+            preserveAspectRatio="xMidYMid meet"
           />
           <circle
-            cx="160"
-            cy="150"
+          cx="280"
+          cy="240"
+          r="3"
+          className="text-purple-400 animate-pulse"
+          />
+
+          <circle
+            cx="280"
+            cy="240"
             r="8"
             stroke="rgba(168, 85, 247, 0.5)"
             fill="none"
           />
 
           <circle
-            cx="200"
-            cy="180"
+            cx="280"
+            cy="240"
             r="3"
             className="text-purple-400 animate-pulse"
             style={{
@@ -143,16 +132,16 @@ function DottedGlobe() {
             }}
           />
           <circle
-            cx="200"
-            cy="180"
+            cx="280"
+            cy="240"
             r="8"
             stroke="rgba(168, 85, 247, 0.5)"
             fill="none"
           />
 
           <circle
-            cx="140"
-            cy="220"
+            cx="280"
+            cy="240"
             r="3"
             className="text-purple-400 animate-pulse"
             style={{
@@ -160,8 +149,8 @@ function DottedGlobe() {
             }}
           />
           <circle
-            cx="140"
-            cy="220"
+            cx="280"
+            cy="240"
             r="8"
             stroke="rgba(168, 85, 247, 0.5)"
             fill="none"
