@@ -12,7 +12,7 @@ const Logo: React.FC = () => {
         height={80}
         className="group-hover:scale-110 transition-transform"
       />
-      <span className="text-2xl font-bold tracking-tighter text-midnight_text dark:text-white uppercase">
+      <span className="text-xl lg:text-2xl font-bold tracking-tighter text-midnight_text dark:text-white uppercase">
         Nelion<span className="text-primary">Finance</span>
       </span>
     </Link>

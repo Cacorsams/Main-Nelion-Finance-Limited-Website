@@ -68,8 +68,10 @@ const Header: React.FC = () => {
             <HeaderLink key={index} item={item} />
           ))}
         </nav>
-        <div className="flex items-center space-x-4">
-          <LanguageSwitcher />
+        <div className="flex items-center space-x-2 md:space-x-4">
+          <div className="hidden lg:flex">
+            <LanguageSwitcher />
+          </div>
           <button
             onClick={() => setNavbarOpen(!navbarOpen)}
             className="block lg:hidden p-2 rounded-lg"
@@ -88,20 +90,23 @@ const Header: React.FC = () => {
         ref={mobileMenuRef}
         className={`lg:hidden fixed top-0 z-50 right-0 h-full w-full bg-white dark:bg-darkmode shadow-lg transform transition-transform duration-300 max-w-xs ${navbarOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        <div className="flex items-center justify-between p-4">
+        <div className="flex items-center justify-between p-4 border-b border-border dark:border-dark_border mb-2">
           <h2 className="text-lg font-bold text-midnight_text dark:text-white">Menu</h2>
-          <button onClick={() => setNavbarOpen(false)} aria-label="Close mobile menu">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="dark:text-white">
-              <path
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            <button onClick={() => setNavbarOpen(false)} aria-label="Close mobile menu" className="p-2 hover:bg-gray-100 dark:hover:bg-darklight rounded-full transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="dark:text-white">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
         <nav className="flex flex-col items-start p-4">
           {data.map((item: any, index: any) => (
