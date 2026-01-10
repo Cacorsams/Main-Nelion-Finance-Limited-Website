@@ -5,6 +5,7 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import { Icon } from "@iconify/react";
 import BlogNewsletter from "@/app/components/blog/BlogNewsletter";
+import SocialShare from "@/app/components/blog/SocialShare";
 
 type Props = {
     params: { slug: string };
@@ -140,32 +141,14 @@ export default async function Post({ params }: any) {
                                 prose-a:text-primary prose-a:no-underline hover:prose-a:underline
                                 border-t border-border dark:border-dark_border pt-16">
                                 <Markdown>{post.content}</Markdown>
+                                <SocialShare title={post.title} variant="bottom" />
                             </article>
                         </div>
 
                         <div className="lg:col-span-4 space-y-12">
                             <div className="sticky top-32 space-y-8">
                                 {/* SHARE BOX */}
-                                <div className="p-10 bg-midnight_text dark:bg-black rounded-[3rem] shadow-2xl relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 size-32 bg-primary/20 blur-3xl -translate-y-1/2 translate-x-1/2" />
-                                    <h3 className="text-2xl font-black text-white uppercase tracking-tighter italic mb-8">Spread the Word</h3>
-                                    <div className="flex flex-col gap-4">
-                                        {[
-                                            { name: 'Facebook', icon: 'mdi:facebook', color: 'hover:bg-blue-600' },
-                                            { name: 'X / Twitter', icon: 'mdi:twitter', color: 'hover:bg-sky-500' },
-                                            { name: 'LinkedIn', icon: 'mdi:linkedin', color: 'hover:bg-blue-700' }
-                                        ].map((social) => (
-                                            <Link
-                                                key={social.name}
-                                                href="#"
-                                                className={`flex items-center gap-4 p-5 rounded-2xl bg-white/10 text-white font-bold uppercase tracking-widest text-sm border border-white/10 ${social.color} transition-all group`}
-                                            >
-                                                <Icon icon={social.icon} className="text-xl group-hover:scale-125 transition-transform" />
-                                                {social.name}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </div>
+                                <SocialShare title={post.title} variant="sidebar" />
 
                                 {/* NEWSLETTER BOX */}
                                 <BlogNewsletter />

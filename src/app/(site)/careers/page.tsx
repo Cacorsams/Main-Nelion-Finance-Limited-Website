@@ -128,9 +128,9 @@ export default function CareersPage() {
                                 <p className="text-xl text-white/70 mb-12 leading-relaxed">
                                     Become part of a team that believes finance can be a tool for dignity, independence, and long-term prosperity.
                                 </p>
-                                <button className="bg-primary text-white py-6 px-12 rounded-[2rem] font-black uppercase tracking-widest hover:bg-blue-700 transition-all shadow-2xl shadow-primary/30 text-xl">
+                                <a href="/contact" className="inline-block bg-primary text-white py-6 px-12 rounded-[2rem] font-black uppercase tracking-widest hover:bg-blue-700 transition-all shadow-2xl shadow-primary/30 text-xl">
                                     Join Nelion Finance
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>

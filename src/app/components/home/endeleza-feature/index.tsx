@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 
@@ -85,9 +86,11 @@ const EndelezaFeature = () => {
 
                         {/* CTA & TRUST */}
                         <div className="pt-6 flex flex-col sm:flex-row items-center gap-8">
-                            <button className="w-full sm:w-auto px-10 py-5 bg-primary text-white font-black uppercase tracking-widest rounded-2xl shadow-xl shadow-primary/30 hover:bg-blue-700 hover:-translate-y-1 transition-all">
-                                Let's Grow Together
-                            </button>
+                            <Link href="/contact">
+                                <button className="w-full sm:w-auto px-10 py-5 bg-primary text-white font-black uppercase tracking-widest rounded-2xl shadow-xl shadow-primary/30 hover:bg-blue-700 hover:-translate-y-1 transition-all">
+                                    Let's Grow Together
+                                </button>
+                            </Link>
                             <div className="flex items-center gap-2">
                                 <div className="size-2 bg-teal-500 rounded-full animate-ping" />
                                 <span className="text-xs font-black uppercase tracking-widest text-gray-500">Responsible Lending</span>

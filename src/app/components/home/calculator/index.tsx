@@ -85,13 +85,13 @@ export default function Calculator() {
           </div>
           <div data-aos="fade-up">
             <Link
-              href="/properties/properties-list"
+              href="/contact"
               className="text-xl bg-primary py-3 px-8 text-white rounded-lg me-3 mb-2 border border-primary hover:bg-blue-700"
             >
               Apply Now
             </Link>
             <Link
-              href="/properties/properties-list"
+              href="/learn-more"
               className="text-xl hover:bg-primary hover:text-white py-3 px-8 text-primary border border-primary rounded-lg me-3 mb-2"
             >
               Learn More
